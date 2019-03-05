@@ -9,6 +9,7 @@ import { SidebarComponent } from './components/dashboard/sidebar/sidebar.compone
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ExplorerComponent } from './components/dashboard/ged/explorer/explorer.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ExplorerComponent } from './components/dashboard/ged/explorer/explorer.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
