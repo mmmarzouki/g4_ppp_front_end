@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ExplorerComponent } from './components/dashboard/ged/explorer/explorer.component';
 import {HttpClientModule} from '@angular/common/http';
+import { PdfViewerComponent } from './components/dashboard/ged/pdf-viewer/pdf-viewer.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {HttpClientModule} from '@angular/common/http';
     FooterComponent,
     SidebarComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    PdfViewerComponent
   ],
   imports: [
     BrowserModule,
