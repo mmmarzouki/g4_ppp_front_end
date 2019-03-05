@@ -8,7 +8,7 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { SidebarComponent } from './components/dashboard/sidebar/sidebar.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ExplorerComponent } from './components/dashboard/GED/explorer/explorer.component';
+import { ExplorerComponent } from './components/dashboard/ged/explorer/explorer.component';
 
 @NgModule({
   declarations: [
