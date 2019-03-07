@@ -1,16 +1,24 @@
 <div class="card">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <label class="navbar-brand cursor-pointer" (click)="openParent()"><-</label>
-    <label class="navbar-brand cursor-pointer" *ngFor="let iterator of path" (click)="setFolder(iterator)">
+    <div class="navbar-brand ">
+      <span class="cursor-pointer tala3" (click)="openParent()" ><i class="fa fa-angle-left"></i></span>
+    </div>
+    <label class="navbar-brand cursor-pointer border-on-hover" *ngFor="let iterator of path" (click)="setFolder(iterator)">
       {{iterator.name}} >
     </label>
   </nav>
   <div class="container">
     <div class="row">
-      <div *ngFor="let iterator of folder.folders" class="col-md-4 col-sm-6 col-lg-3 cursor-pointer" (click)="setFolder(iterator)">
-        <div class="card">
-          <img src="/src/assets/img/">
-          {{iterator.name}}
+      <div *ngFor="let iterator of folder.folders" class="col-md-4 col-sm-6 col-lg-3">
+        <div class="card my-3 cursor-pointer" (click)="setFolder(iterator)">
+          <img src="../../../../../assets/img/folder-icon.png" class="img">
+          <label class="text-center font-weight-bold cursor-pointer">{{iterator.name}}</label>
+        </div>
+      </div>
+      <div *ngFor="let iterator of folder.files" class="col-md-4 col-sm-6 col-lg-3">
+        <div class="card my-3 cursor-pointer">
+          <img src="../../../../../assets/img/pdf-icon.png" class="img">
+          <label class="text-center font-weight-bold cursor-pointer">{{iterator.name}}</label>
         </div>
       </div>
     </div>

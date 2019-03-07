@@ -10,7 +10,13 @@ export class ExplorerComponent implements OnInit {
 
   folderExample: Folder = {
     id: '1',
-    files: [],
+    files: [{
+      name: 'file1.pdf'
+    },
+      {
+      name: 'file2.pdf'
+      }
+    ],
     name: 'folder_root',
     path: '/folder_root',
     folders: [
