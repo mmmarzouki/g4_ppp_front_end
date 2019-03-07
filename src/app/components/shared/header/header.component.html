@@ -1,3 +1,31 @@
-<p>
-  header works!
-</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="navbar-brand">
+    <span>
+      <a href="/">LOGO HERE</a>
+    </span>
+  </div>
+  <div class="navbar-brand mr-auto">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown btn btn-secondary dropdown-toggle" dropdownToggle dropdown >
+        --Select Project--
+        <div *dropdownMenu class="dropdown-menu">
+          <a class="dropdown-item">Project 1</a>
+          <a class="dropdown-item">Project 2</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="navbar-brand">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown btn btn-secondary dropdown-toggle" dropdownToggle dropdown >
+        <i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;mmmarzouki
+        <div *dropdownMenu class="dropdown-menu">
+          <a class="dropdown-item"><i class="fa fa-id-card"></i>&nbsp;&nbsp;&nbsp;Profile</a>
+          <a class="dropdown-item"><i class="fa fa-cogs"></i>&nbsp;&nbsp;&nbsp;Settings</a>
+          <a class="dropdown-item"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;&nbsp;Disconnect</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+

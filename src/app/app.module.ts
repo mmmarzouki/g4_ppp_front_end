@@ -11,6 +11,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ExplorerComponent } from './components/dashboard/ged/explorer/explorer.component';
 import {HttpClientModule} from '@angular/common/http';
 import { PdfViewerComponent } from './components/dashboard/ged/pdf-viewer/pdf-viewer.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PdfViewerComponent } from './components/dashboard/ged/pdf-viewer/pdf-vi
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BsDropdownModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
