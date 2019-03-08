@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card full-remaining-height">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="navbar-brand ">
       <span class="cursor-pointer tala3" (click)="openParent()" ><i class="fa fa-angle-left"></i></span>
@@ -9,13 +9,13 @@
   </nav>
   <div class="container">
     <div class="row">
-      <div *ngFor="let iterator of folder.folders" class="col-md-4 col-sm-6 col-lg-3">
+      <div *ngFor="let iterator of folder.folders" class="col-md-3 col-sm-4 col-lg-2">
         <div class="card my-3 cursor-pointer" (click)="setFolder(iterator)">
           <img src="../../../../../assets/img/folder-icon.png" class="img">
           <label class="text-center font-weight-bold cursor-pointer">{{iterator.name}}</label>
         </div>
       </div>
-      <div *ngFor="let iterator of folder.files" class="col-md-4 col-sm-6 col-lg-3">
+      <div *ngFor="let iterator of folder.files" class="col-md-3 col-sm-4 col-lg-2">
         <div class="card my-3 cursor-pointer">
           <img src="../../../../../assets/img/pdf-icon.png" class="img">
           <label class="text-center font-weight-bold cursor-pointer">{{iterator.name}}</label>

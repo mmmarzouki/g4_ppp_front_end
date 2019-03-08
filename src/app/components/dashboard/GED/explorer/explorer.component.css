@@ -11,7 +11,10 @@
   top:-4px;
 }
 .img{
-  width: 69%;
-  height: 69%;
+  width: 70%;
+  height: 25%;
   margin: auto;
+}
+.full-remaining-height {
+  height: calc( 100vh - 64px);
 }
