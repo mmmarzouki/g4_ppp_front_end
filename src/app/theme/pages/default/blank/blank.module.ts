@@ -10,7 +10,7 @@ import { StatusComponent } from './status/status/status.component';
 
 const routes: Routes = [
     {
-        'path': '',
+        'path': 'project/:projectid',
         'component': DefaultComponent,
         'children': [
             {
