@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Helpers } from '../../../helpers';
 import { ScriptLoaderService } from '../../../_services/script-loader.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -11,11 +12,10 @@ import { ScriptLoaderService } from '../../../_services/script-loader.service';
 export class DefaultComponent implements OnInit {
 
 
-    constructor() {
+    constructor(private route: ActivatedRoute) {
 
     }
     ngOnInit() {
-
     }
 
 }

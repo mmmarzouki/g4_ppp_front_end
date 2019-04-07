@@ -9,11 +9,14 @@ import { AppComponent } from './app.component';
 import { ScriptLoaderService } from "./_services/script-loader.service";
 import { ThemeRoutingModule } from "./theme/theme-routing.module";
 import { AuthModule } from "./auth/auth.module";
-
+import { ApiService } from './_services/api.service';
+import { HttpClientModule } from '@angular/common/http'; 
+import { HomeComponent } from './theme/pages/default/blank/home/home.component';
 @NgModule({
     declarations: [
         ThemeComponent,
         AppComponent,
+        HomeComponent
     ],
     imports: [
         LayoutModule,
@@ -22,8 +25,9 @@ import { AuthModule } from "./auth/auth.module";
         AppRoutingModule,
         ThemeRoutingModule,
         AuthModule,
+        HttpClientModule,
     ],
-    providers: [ScriptLoaderService],
+    providers: [ScriptLoaderService, ApiService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

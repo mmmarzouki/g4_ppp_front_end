@@ -1,5 +1,5 @@
 import { Doc } from "./doc";
-import { ProcessType } from "./types/stagetype";
+import { ProcessType } from "./types/processtype";
 
 export class Process{
     id: string;

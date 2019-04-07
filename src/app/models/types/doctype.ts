@@ -4,7 +4,7 @@ export enum DocType  {
     ChangeControlApproach = "Change Control Approach",
     CheckpointReport = "Checkpoint Report",
     CommunicationManagementApproach = "Communication Management Approach",
-    ConfigurationItemRecord = "ConfigurationItemRecord",
+    ConfigurationItemRecord = "Configuration Item Record",
     DailyLog = "Daily Log",
     EndProjectReport = "End Project Report",
     EndStageReport = "End Stage Report",

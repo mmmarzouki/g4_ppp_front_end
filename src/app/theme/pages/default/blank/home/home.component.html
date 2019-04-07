@@ -1,0 +1,158 @@
+<div class="project-home">
+  <div class="my-projects">
+<div class="m-portlet m-portlet--tabs m-portlet--brand m-portlet--head-solid-bg m-portlet--head-sm m-portlet--bordered">
+    <div class="m-portlet__head">
+      <div class="m-portlet__head-caption">
+        <div class="m-portlet__head-title">
+          <h3 class="m-portlet__head-text">
+            My projects
+            <small>
+              Choose a project to continue
+            </small>
+          </h3>
+        </div>
+      </div>
+      <div class="m-portlet__head-tools">
+        <ul class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand  m-tabs-line--right m-tabs-line-danger" role="tablist">
+          <li class="nav-item m-tabs__item">
+            <button class="nav-link m-tabs__link" (click)="add()">
+              <i class="flaticon-add-circular-button"></i>
+              Create project
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  <div class="m-portlet__body">
+      <div class="tab-content">
+          <div class="m-demo__preview">
+              <div class="m-list-timeline">
+                <div class="m-list-timeline__items">
+                  <div class="m-list-timeline__item" *ngFor="let project of model">
+                    <span class="m-list-timeline__badge"></span>
+                    <span class="m-list-timeline__text">
+                      {{project.name}}
+                    </span>
+                    <span class="m-list-timeline__time">
+                      {{project.startDate}}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="m-portlet" *ngIf="addProject">
+      <div class="m-portlet__head">
+        <div class="m-portlet__head-caption">
+          <div class="m-portlet__head-title">
+            <span class="m-portlet__head-icon m--hide">
+              <i class="la la-gear"></i>
+            </span>
+            <h3 class="m-portlet__head-text">
+              Please fill in the form below
+            </h3>
+          </div>
+        </div>
+      </div>
+      <!--begin::Form-->
+      <form class="m-form">
+        <div class="m-portlet__body">
+          <div class="m-form__section m-form__section--first">
+            <div class="form-group m-form__group row">
+              <label class="col-lg-3 col-form-label">
+                Project Name
+              </label>
+              <div class="col-lg-6">
+                <input type="email" class="form-control m-input" placeholder="Enter full name">
+              </div>
+            </div>
+            <div class="form-group m-form__group row">
+              <label class="col-lg-3 col-form-label">
+                Project description
+              </label>
+              <div class="col-lg-6">
+                <input type="email" class="form-control m-input" placeholder="Enter email">
+                <span class="m-form__help">
+                  Describe your project in a few sentences.
+                </span>
+              </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <label class="col-form-label col-lg-3 col-sm-12">
+                  Start date
+                </label>
+                <div class="col-lg-4 col-md-9 col-sm-12">
+                  <div class="input-group date">
+                    <input type="date" class="form-control m-input" value="05/20/2017" id="m_datepicker_3">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group m-form__group row">
+                  <label class="col-form-label col-lg-3 col-sm-12">
+                    End date
+                  </label>
+                  <div class="col-lg-4 col-md-9 col-sm-12">
+                    <div class="input-group date">
+                      <input type="date" class="form-control m-input" value="05/20/2017" id="m_datepicker_3">
+                    </div>
+                  </div>
+                </div>
+
+
+          </div>
+
+          <div class="m-form__section m-form__section--first">
+              <div class="m-form__heading d-flex justify-content-between">
+                <h3 class="m-form__heading-title">
+                  Collaborators
+                </h3>
+                <div class="d-flex justify-content-end">
+                <button (click)="addCollaborator()" type="button" class="m-1 btn btn-accent">
+                    Add 
+                  </button>
+                  <button (click)="removeLastCollaborator()" type="button" class="m-1 btn btn-danger">
+                      remove last
+                  </button>
+                </div>
+              </div>
+              <div class="form-group m-form__group row" *ngFor="let i of arrayOne(collaboratorsNumber)">
+                  <label class="col-lg-2 col-form-label">
+                    Full Name:
+                  </label>
+                  <div class="col-lg-3">
+                    <input type="email" class="form-control m-input" placeholder="Enter full name">
+                  </div>
+                  <label class="col-lg-2 col-form-label">
+                    Contact Number:
+                  </label>
+                  <div class="col-lg-3">
+                    <input type="email" class="form-control m-input" placeholder="Enter contact number">
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-portlet__foot m-portlet__foot--fit">
+          <div class="m-form__actions m-form__actions">
+            <div class="row">
+              <div class="col-lg-3"></div>
+              <div class="col-lg-6">
+                <button type="reset" class="btn btn-success">
+                  Submit
+                </button>
+                <button type="reset" class="btn btn-secondary">
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!--end::Form-->
+    </div>
+
+
+</div>
