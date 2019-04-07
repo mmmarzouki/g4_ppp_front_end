@@ -2,6 +2,6 @@ import { Collaborator } from "./collaborator";
 import { RoleType } from "./types/roletype";
 
 export class CollaboratorRole{
-    collaborator: Collaborator;
+    collaboratorId: string;
     role: RoleType    
 }

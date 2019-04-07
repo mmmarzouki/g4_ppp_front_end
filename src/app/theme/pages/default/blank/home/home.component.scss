@@ -1,9 +1,13 @@
 .project-home{
     position: absolute;
     left: 30vw;
-    top: 25vh;
+    top: 10vh;
     overflow: auto;
 }
 .my-projects{
     width: 40vw;
+}
+#projects{
+    max-height: 20vh;
+    overflow: auto;
 }
