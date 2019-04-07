@@ -7,6 +7,6 @@ export class Project{
     description: string;
     startDate: string;
     endDate: string;
-    processs: Process[];
+    processes: Process[];
     collaborators: CollaboratorRole[];
 }

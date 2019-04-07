@@ -5,6 +5,7 @@ export class Process{
     id: string;
     startDate: string;
     endDate: string;
+    name: string;
     processType: ProcessType;
     isActive: boolean;
     docs: Doc[];
