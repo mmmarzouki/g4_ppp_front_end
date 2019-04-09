@@ -12,12 +12,15 @@ import { AuthModule } from "./auth/auth.module";
 import { ApiService } from './_services/api.service';
 import { HttpClientModule } from '@angular/common/http'; 
 import { HomeComponent } from './theme/pages/default/blank/home/home.component';
-
+import { LoginComponent } from './login/login/login.component';
+import { SignupComponent } from './signup/signup/signup.component';
 @NgModule({
     declarations: [
         ThemeComponent,
         AppComponent,
-        HomeComponent
+        HomeComponent,
+        LoginComponent,
+        SignupComponent
     ],
     imports: [
         LayoutModule,

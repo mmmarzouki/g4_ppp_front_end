@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
 
   add()
   {
-    this.addProject = true;
+    this.addProject = !this.addProject;
   }
   ngOnInit() {
     this.api.getMany<Collaborator>().subscribe(collaborators => {

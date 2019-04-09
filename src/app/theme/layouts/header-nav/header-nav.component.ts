@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewEncapsulation, AfterViewInit } from '@angular/core';
 import { Helpers } from '../../../helpers';
+import { ProjectResolver } from '../../../_resolvers/project-resolver';
+import { Project } from '../../../models/project';
+
 
 declare let mLayout: any;
 @Component({
@@ -9,12 +12,12 @@ declare let mLayout: any;
 })
 export class HeaderNavComponent implements OnInit, AfterViewInit {
 
-
-    constructor() {
+    project: Project;
+    constructor(private projectResolver: ProjectResolver) {
 
     }
     ngOnInit() {
-
+        this.project = this.projectResolver.project;
     }
     ngAfterViewInit() {
 

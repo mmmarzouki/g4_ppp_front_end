@@ -7,7 +7,7 @@
 				<div class="m-stack__item m-brand">
 					<div class="m-stack m-stack--ver m-stack--general m-stack--inline">
 						<div class="m-stack__item m-stack__item--middle m-brand__logo">
-							<a routerLink="/index" class="m-brand__logo-wrapper">
+							<a routerLink="/" class="m-brand__logo-wrapper">
 								<img alt="" src="./assets/demo/demo2/media/img/logo/logo.png"/>
 							</a>
 						</div>
@@ -137,7 +137,7 @@
 					<div id="m_header_menu" class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-dark m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-light m-aside-header-menu-mobile--submenu-skin-light"  >
 						<ul class="m-menu__nav  m-menu__nav--submenu-arrow">
 							<li class="m-menu__item  " routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }"   aria-haspopup="true">
-								<a  routerLink="/project/projectid/status" class="m-menu__link">
+								<a  [routerLink]="['/project',project.id,'status']" class="m-menu__link">
 									<span class="m-menu__item-here"></span>
 									<span class="m-menu__link-text">
 										Project status
@@ -145,7 +145,7 @@
 								</a>
 							</li>
 							<li class="m-menu__item  " routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }"   aria-haspopup="true">
-								<a  routerLink="/project/projectid/documents" class="m-menu__link">
+								<a  [routerLink]="['/project',project.id,'documents']" class="m-menu__link">
 									<span class="m-menu__item-here"></span>
 									<span class="m-menu__link-text">
 										My documents
@@ -153,7 +153,7 @@
 								</a>
 							</li>
 							<li class="m-menu__item  " routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }"   aria-haspopup="true">
-								<a  routerLink="/project/projectid/notifications" class="m-menu__link">
+								<a  [routerLink]="['/project',project.id,'notifications']" class="m-menu__link">
 									<span class="m-menu__item-here"></span>
 									<span class="m-menu__link-text">
 										Notifications

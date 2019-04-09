@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { ThemeComponent } from './theme.component';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../auth/_guards/auth.guard';
+import { ProjectResolver } from '../_resolvers/project-resolver';
 
 const routes: Routes = [
     {
@@ -26,5 +27,6 @@ const routes: Routes = [
 @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule],
+    providers: [ProjectResolver]
 })
 export class ThemeRoutingModule { }

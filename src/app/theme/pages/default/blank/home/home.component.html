@@ -1,260 +1,451 @@
-<div class="project-home">
-  <div class="my-projects">
+<!-- begin::Header -->
+<header
+  id="m_header"
+  class="m-grid__item m-header"
+  minimize="minimize"
+  minimize-offset="200"
+  minimize-mobile-offset="200"
+  appunwraptag=""
+>
+  <div class="m-header__top">
     <div
-      class="m-portlet m-portlet--tabs m-portlet--brand m-portlet--head-solid-bg m-portlet--head-sm m-portlet--bordered"
+      class="m-container m-container--responsive m-container--xxl m-container--full-height m-page__container"
     >
-      <div class="m-portlet__head">
-        <div class="m-portlet__head-caption">
-          <div class="m-portlet__head-title">
-            <h3 class="m-portlet__head-text">
-              My projects
-              <small>
-                Choose a project to continue
-              </small>
-            </h3>
+      <div class="m-stack m-stack--ver m-stack--desktop">
+        <!-- begin::Brand -->
+        <div class="m-stack__item m-brand">
+          <div class="m-stack m-stack--ver m-stack--general m-stack--inline">
+            <div class="m-stack__item m-stack__item--middle m-brand__logo">
+              <a routerLink="/" class="m-brand__logo-wrapper">
+                <img alt="" src="./assets/demo/demo2/media/img/logo/logo.png" />
+              </a>
+            </div>
           </div>
         </div>
-        <div class="m-portlet__head-tools">
-          <ul
-            class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand  m-tabs-line--right m-tabs-line-danger"
-            role="tablist"
+        <!-- end::Brand -->
+        <!-- begin::Topbar -->
+        <div
+          class="m-stack__item m-stack__item--fluid m-header-head"
+          id="m_header_nav"
+        >
+          <div
+            id="m_header_topbar"
+            class="m-topbar  m-stack m-stack--ver m-stack--general"
           >
-            <li class="nav-item m-tabs__item">
-              <button class="nav-link m-tabs__link" (click)="add()">
-                <i class="flaticon-add-circular-button"></i>
-                Create project
-              </button>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="m-portlet__body" id="projects">
-        <div class="tab-content">
-          <div class="m-demo">
-            <div class="m-demo__preview">
-              <ul class="m-nav">
-                <li *ngFor="let project of model" class="m-nav__item">
-                  <a
-                    [routerLink]="['project', project.id, 'status']"
-                    class="m-nav__link"
-                  >
-                    <span class="m-nav__link-bullet m-nav__link-bullet--line">
-                      <span></span>
+            <div class="m-stack__item m-topbar__nav-wrapper">
+              <ul class="m-topbar__nav m-nav m-nav--inline">
+                <li
+                  class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light"
+                  m-dropdown-toggle="click"
+                >
+                  <a href="#" class="m-nav__link m-dropdown__toggle">
+                    <span class="m-topbar__userpic m--hide">
+                      <img
+                        src="./assets/app/media/img/users/user4.jpg"
+                        class="m--img-rounded m--marginless m--img-centered"
+                        alt=""
+                      />
                     </span>
-                    <span class="m-nav__link-text">
-                      {{ project.name }}
+                    <span class="m-topbar__welcome">
+                      Hello,&nbsp;
+                    </span>
+                    <span class="m-topbar__username">
+                      Nick
                     </span>
                   </a>
+                  <div class="m-dropdown__wrapper">
+                    <span
+                      class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"
+                    ></span>
+                    <div class="m-dropdown__inner">
+                      <div
+                        class="m-dropdown__header m--align-center"
+                        style="background: url(./assets/app/media/img/misc/user_profile_bg.jpg); background-size: cover;"
+                      >
+                        <div class="m-card-user m-card-user--skin-dark">
+                          <div class="m-card-user__pic">
+                            <img
+                              src="./assets/app/media/img/users/user4.jpg"
+                              class="m--img-rounded m--marginless"
+                              alt=""
+                            />
+                          </div>
+                          <div class="m-card-user__details">
+                            <span class="m-card-user__name m--font-weight-500">
+                              Mark Andre
+                            </span>
+                            <a
+                              href=""
+                              class="m-card-user__email m--font-weight-300 m-link"
+                            >
+                              mark.andre@gmail.com
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="m-dropdown__body">
+                        <div class="m-dropdown__content">
+                          <ul class="m-nav m-nav--skin-light">
+                            <li class="m-nav__section m--hide">
+                              <span class="m-nav__section-text">
+                                Section
+                              </span>
+                            </li>
+                            <li class="m-nav__item">
+                              <a routerLink="/profile" class="m-nav__link">
+                                <i
+                                  class="m-nav__link-icon flaticon-profile-1"
+                                ></i>
+                                <span class="m-nav__link-title">
+                                  <span class="m-nav__link-wrap">
+                                    <span class="m-nav__link-text">
+                                      My Profile
+                                    </span>
+                                    <span class="m-nav__link-badge">
+                                      <span class="m-badge m-badge--success">
+                                        2
+                                      </span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </a>
+                            </li>
+                            <li class="m-nav__item">
+                              <a routerLink="/profile" class="m-nav__link">
+                                <i class="m-nav__link-icon flaticon-share"></i>
+                                <span class="m-nav__link-text">
+                                  Activity
+                                </span>
+                              </a>
+                            </li>
+                            <li class="m-nav__item">
+                              <a routerLink="/profile" class="m-nav__link">
+                                <i class="m-nav__link-icon flaticon-chat-1"></i>
+                                <span class="m-nav__link-text">
+                                  Messages
+                                </span>
+                              </a>
+                            </li>
+                            <li
+                              class="m-nav__separator m-nav__separator--fit"
+                            ></li>
+                            <li class="m-nav__item">
+                              <a routerLink="/profile" class="m-nav__link">
+                                <i class="m-nav__link-icon flaticon-info"></i>
+                                <span class="m-nav__link-text">
+                                  FAQ
+                                </span>
+                              </a>
+                            </li>
+                            <li class="m-nav__item">
+                              <a routerLink="/profile" class="m-nav__link">
+                                <i
+                                  class="m-nav__link-icon flaticon-lifebuoy"
+                                ></i>
+                                <span class="m-nav__link-text">
+                                  Support
+                                </span>
+                              </a>
+                            </li>
+                            <li
+                              class="m-nav__separator m-nav__separator--fit"
+                            ></li>
+                            <li class="m-nav__item">
+                              <a
+                                routerLink="/snippets/pages/user/login-1"
+                                class="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder"
+                                routerLink="/logout"
+                              >
+                                Logout
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </li>
               </ul>
             </div>
           </div>
         </div>
+        <!-- end::Topbar -->
       </div>
     </div>
   </div>
-  <div class="m-portlet" *ngIf="addProject">
-    <div class="m-portlet__head">
-      <div *ngIf="success" class="alert alert-success" role="alert">
-        Project successfuly added.
-      </div>
-      <div class="m-portlet__head-caption">
-        <div class="m-portlet__head-title">
-          <span class="m-portlet__head-icon m--hide">
-            <i class="la la-gear"></i>
-          </span>
+</header>
+<!-- end::Header -->
 
-          <h3 *ngIf="!success" class="m-portlet__head-text">
-            Please fill in the form below
-          </h3>
-        </div>
-      </div>
-    </div>
-    <!--begin::Form-->
-    <form class="m-form" [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="m-portlet__body">
-        <div class="m-form__section m-form__section--first">
-          <div class="form-group m-form__group row">
-            <label class="col-lg-3 col-form-label">
-              Project Name
-            </label>
-            <div class="col-lg-6">
-              <input
-                name="name"
-                formControlName="name"
-                type="text"
-                class="form-control m-input"
-                placeholder="Enter project name"
-              />
-              <span
-                class="m-form__help text-danger"
-                *ngIf="!form?.controls.name.valid && submitted"
-              >
-                Please enter a project name
-              </span>
-            </div>
-          </div>
-          <div class="form-group m-form__group row">
-            <label class="col-lg-3 col-form-label">
-              Project description
-            </label>
-            <div class="col-lg-6">
-              <input
-                name="description"
-                type="text"
-                formControlName="description"
-                class="form-control m-input"
-                placeholder="Enter project description"
-              />
-              <span
-                class="m-form__help text-danger"
-                *ngIf="!form?.controls.description.valid && submitted"
-              >
-                Please enter a project description
-              </span>
-            </div>
-          </div>
-          <div class="form-group m-form__group row">
-            <label class="col-form-label col-lg-3 col-sm-12">
-              Start date
-            </label>
-            <div class="col-lg-4 col-md-9 col-sm-12">
-              <div class="input-group date">
-                <input
-                  name="startDate"
-                  formControlName="startDate"
-                  type="date"
-                  class="form-control m-input"
-                  id="m_datepicker_3"
-                />
-                <span
-                  class="m-form__help text-danger"
-                  *ngIf="!form?.controls.startDate.valid && submitted"
-                >
-                  Please enter a start date
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group m-form__group row">
-            <label class="col-form-label col-lg-3 col-sm-12">
-              End date
-            </label>
-            <div class="col-lg-4 col-md-9 col-sm-12">
-              <div class="input-group date">
-                <input
-                  name="endDate"
-                  formControlName="endDate"
-                  type="date"
-                  class="form-control m-input"
-                  id="m_datepicker_3"
-                />
-                <span
-                  class="m-form__help text-danger"
-                  *ngIf="!form?.controls.endDate.valid && submitted"
-                >
-                  Please enter an end date.
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="m-form__section m-form__section--first">
-          <div class="m-form__heading d-flex justify-content-between">
-            <h3 class="m-form__heading-title">
-              Collaborators
-            </h3>
-            <div class="d-flex justify-content-end">
-              <button
-                type="button"
-                (click)="addCollaborator()"
-                class="btn btn-accent m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill m-btn--air"
-              >
-                <i class="la la-plus"></i>
-              </button>
-            </div>
-          </div>
+<div
+  class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-container--responsive m-container--xxl m-page__container m-body"
+  id="home"
+  >
+    <div class="m-grid__item m-grid__item--fluid m-wrapper d-flex justify-content-center"  >
+      <div class="project-home col-6">
+        <div class="my-projects">
           <div
-            formArrayName="collaborators"
-            class="form-group m-form__group row d-flex justify-content-center"
-            *ngFor="
-              let collaborator of collaboratorsFormGroup.controls;
-              let i = index
-            "
+            class="m-portlet m-portlet--tabs m-portlet--brand m-portlet--head-solid-bg m-portlet--head-sm m-portlet--bordered"
           >
-            <div [formGroupName]="i" class="row">
-              <label class="col-lg-2 col-form-label">
-                Collaborator:
-              </label>
-              <div class="col-lg-4">
-                <select
-                  class="form-control m-input"
-                  formControlName="collaboratorId"
+            <div class="m-portlet__head">
+              <div class="m-portlet__head-caption">
+                <div class="m-portlet__head-title">
+                  <h3 class="m-portlet__head-text">
+                    My projects
+                    <small>
+                      Choose a project to continue
+                    </small>
+                  </h3>
+                </div>
+              </div>
+              <div class="m-portlet__head-tools">
+                <ul
+                  class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand  m-tabs-line--right m-tabs-line-danger"
+                  role="tablist"
                 >
-                  <option value="" disabled selected
-                    >Choose collaborator</option
-                  >
-                  <option *ngFor="let c of collaborators" [value]="c.id">
-                    {{ c.firstName }} {{ c.lastName }}
-                  </option>
-                </select>
-                <span
-                  class="m-form__help text-danger"
-                  *ngIf="
-                    !collaborator.controls.collaboratorId.valid && submitted
+                  <li class="nav-item m-tabs__item">
+                    <button class="nav-link m-tabs__link" (click)="add()">
+                      <i class="flaticon-add-circular-button"></i>
+                      Create project
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="m-portlet__body" id="projects">
+              <div class="tab-content">
+                <div class="m-demo">
+                  <div class="m-demo__preview">
+                    <ul class="m-nav">
+                      <li *ngFor="let project of model" class="m-nav__item">
+                        <a
+                          [routerLink]="['project', project.id, 'status']"
+                          class="m-nav__link"
+                        >
+                          <span
+                            class="m-nav__link-bullet m-nav__link-bullet--line"
+                          >
+                            <span></span>
+                          </span>
+                          <span class="m-nav__link-text">
+                            {{ project.name }}
+                          </span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet" *ngIf="addProject">
+          <div class="m-portlet__head">
+            <div *ngIf="success" class="alert alert-success" role="alert">
+              Project successfuly added.
+            </div>
+            <div class="m-portlet__head-caption">
+              <div class="m-portlet__head-title">
+                <span class="m-portlet__head-icon m--hide">
+                  <i class="la la-gear"></i>
+                </span>
+
+                <h3 *ngIf="!success" class="m-portlet__head-text">
+                  Please fill in the form below
+                </h3>
+              </div>
+            </div>
+          </div>
+          <!--begin::Form-->
+          <form class="m-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="m-portlet__body">
+              <div class="m-form__section m-form__section--first">
+                <div class="form-group m-form__group row">
+                  <label class="col-lg-3 col-form-label">
+                    Project Name
+                  </label>
+                  <div class="col-lg-6">
+                    <input
+                      name="name"
+                      formControlName="name"
+                      type="text"
+                      class="form-control m-input"
+                      placeholder="Enter project name"
+                    />
+                    <span
+                      class="m-form__help text-danger"
+                      *ngIf="!form?.controls.name.valid && submitted"
+                    >
+                      Please enter a project name
+                    </span>
+                  </div>
+                </div>
+                <div class="form-group m-form__group row">
+                  <label class="col-lg-3 col-form-label">
+                    Project description
+                  </label>
+                  <div class="col-lg-6">
+                    <input
+                      name="description"
+                      type="text"
+                      formControlName="description"
+                      class="form-control m-input"
+                      placeholder="Enter project description"
+                    />
+                    <span
+                      class="m-form__help text-danger"
+                      *ngIf="!form?.controls.description.valid && submitted"
+                    >
+                      Please enter a project description
+                    </span>
+                  </div>
+                </div>
+                <div class="form-group m-form__group row">
+                  <label class="col-form-label col-lg-3 col-sm-12">
+                    Start date
+                  </label>
+                  <div class="col-lg-4 col-md-9 col-sm-12">
+                    <div class="input-group date">
+                      <input
+                        name="startDate"
+                        formControlName="startDate"
+                        type="date"
+                        class="form-control m-input"
+                        id="m_datepicker_3"
+                      />
+                      <span
+                        class="m-form__help text-danger"
+                        *ngIf="!form?.controls.startDate.valid && submitted"
+                      >
+                        Please enter a start date
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group m-form__group row">
+                  <label class="col-form-label col-lg-3 col-sm-12">
+                    End date
+                  </label>
+                  <div class="col-lg-4 col-md-9 col-sm-12">
+                    <div class="input-group date">
+                      <input
+                        name="endDate"
+                        formControlName="endDate"
+                        type="date"
+                        class="form-control m-input"
+                        id="m_datepicker_3"
+                      />
+                      <span
+                        class="m-form__help text-danger"
+                        *ngIf="!form?.controls.endDate.valid && submitted"
+                      >
+                        Please enter an end date.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="m-form__section m-form__section--first">
+                <div class="m-form__heading d-flex justify-content-between">
+                  <h3 class="m-form__heading-title">
+                    Collaborators
+                  </h3>
+                  <div class="d-flex justify-content-end">
+                    <button
+                      type="button"
+                      (click)="addCollaborator()"
+                      class="btn btn-accent m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill m-btn--air"
+                    >
+                      <i class="la la-plus"></i>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  formArrayName="collaborators"
+                  class="form-group m-form__group row d-flex justify-content-center"
+                  *ngFor="
+                    let collaborator of collaboratorsFormGroup.controls;
+                    let i = index
                   "
                 >
-                  Please choose a collaborator.
-                </span>
-              </div>
-              <label class="col-lg-1 col-form-label">
-                Role
-              </label>
-              <div class="col-lg-4">
-                <select class="form-control m-input" formControlName="role">
-                  <option value="" disabled selected>Choose role</option>
-                  <option *ngFor="let role of Roles" [value]="role">
-                    {{ role }}
-                  </option>
-                </select>
-                <span
-                  class="m-form__help text-danger"
-                  *ngIf="!collaborator.controls.role.valid && submitted"
-                >
-                  Please choose a role.
-                </span>
-              </div>
-              <div class="col-lg-1">
-                <button
-                  (click)="removeLastCollaborator(i)"
-                  type="button"
-                  class="btn btn-danger m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill m-btn--air"
-                >
-                  <i class="la la-minus"></i>
-                </button>
+                  <div [formGroupName]="i" class="row">
+                    <label class="col-lg-2 col-form-label">
+                      Collaborator:
+                    </label>
+                    <div class="col-lg-4">
+                      <select
+                        class="form-control m-input"
+                        formControlName="collaboratorId"
+                      >
+                        <option value="" disabled selected
+                          >Choose collaborator</option
+                        >
+                        <option *ngFor="let c of collaborators" [value]="c.id">
+                          {{ c.firstName }} {{ c.lastName }}
+                        </option>
+                      </select>
+                      <span
+                        class="m-form__help text-danger"
+                        *ngIf="
+                          !collaborator.controls.collaboratorId.valid &&
+                          submitted
+                        "
+                      >
+                        Please choose a collaborator.
+                      </span>
+                    </div>
+                    <label class="col-lg-1 col-form-label">
+                      Role
+                    </label>
+                    <div class="col-lg-4">
+                      <select
+                        class="form-control m-input"
+                        formControlName="role"
+                      >
+                        <option value="" disabled selected>Choose role</option>
+                        <option *ngFor="let role of Roles" [value]="role">
+                          {{ role }}
+                        </option>
+                      </select>
+                      <span
+                        class="m-form__help text-danger"
+                        *ngIf="!collaborator.controls.role.valid && submitted"
+                      >
+                        Please choose a role.
+                      </span>
+                    </div>
+                    <div class="col-lg-1">
+                      <button
+                        (click)="removeLastCollaborator(i)"
+                        type="button"
+                        class="btn btn-danger m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill m-btn--air"
+                      >
+                        <i class="la la-minus"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="m-portlet__foot m-portlet__foot--fit">
-        <div class="m-form__actions m-form__actions">
-          <div class="row">
-            <div class="col-lg-3"></div>
-            <div class="col-lg-6">
-              <button type="submit" class="btn btn-success">
-                Submit
-              </button>
-              <button type="reset" class="btn btn-secondary">
-                Cancel
-              </button>
+            <div class="m-portlet__foot m-portlet__foot--fit">
+              <div class="m-form__actions m-form__actions">
+                <div class="row">
+                  <div class="col-lg-3"></div>
+                  <div class="col-lg-6">
+                    <button type="submit" class="btn btn-success">
+                      Submit
+                    </button>
+                    <button type="reset" class="btn btn-secondary">
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          </form>
+          <!--end::Form-->
         </div>
       </div>
-    </form>
-    <!--end::Form-->
+    </div>
   </div>
-</div>

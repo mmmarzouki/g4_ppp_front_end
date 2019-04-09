@@ -51,6 +51,6 @@ const routes: Routes = [
     StatusComponent,
     
   ],
-  providers: [ProjectResolver]
+  providers: []
 })
 export class BlankModule {}
