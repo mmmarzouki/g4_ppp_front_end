@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation, AfterViewInit } from '@angular/co
 import { Helpers } from '../../../helpers';
 import { ProjectResolver } from '../../../_resolvers/project-resolver';
 import { Project } from '../../../models/project';
+import { AuthService } from '../../../_services/auth.service';
 
 
 declare let mLayout: any;
@@ -13,7 +14,7 @@ declare let mLayout: any;
 export class HeaderNavComponent implements OnInit, AfterViewInit {
 
     project: Project;
-    constructor(private projectResolver: ProjectResolver) {
+    constructor(private projectResolver: ProjectResolver, private authService: AuthService) {
 
     }
     ngOnInit() {
@@ -23,6 +24,9 @@ export class HeaderNavComponent implements OnInit, AfterViewInit {
 
         mLayout.initHeader();
 
+    }
+    logout(){
+        this.authService.logout();
     }
 
 }

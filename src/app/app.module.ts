@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './theme/pages/default/blank/home/home.component';
 import { LoginComponent } from './login/login/login.component';
 import { SignupComponent } from './signup/signup/signup.component';
+import { AuthService } from './_services/auth.service';
+import { AuthGuardService } from './_services/auth-guard.service';
 @NgModule({
     declarations: [
         ThemeComponent,
@@ -32,7 +34,7 @@ import { SignupComponent } from './signup/signup/signup.component';
         HttpClientModule,
         ReactiveFormsModule
     ],
-    providers: [ScriptLoaderService, ApiService],
+    providers: [ScriptLoaderService, ApiService, AuthService, AuthGuardService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

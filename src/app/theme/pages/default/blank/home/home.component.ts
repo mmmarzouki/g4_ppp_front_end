@@ -6,6 +6,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RoleType } from '../../../../../models/types/roletype';
 import * as moment from 'moment';
 import { CollaboratorRole } from '../../../../../models/CollaboratorRole';
+import { AuthService } from '../../../../../_services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -25,10 +26,13 @@ export class HomeComponent implements OnInit {
   public collaboratorsList: FormArray;
 
 
-  constructor(private api: ApiService, private fb: FormBuilder) { 
+  constructor(private api: ApiService, private fb: FormBuilder, private authService: AuthService) { 
     this.api.classname = "collaborators"
   }
 
+  logout(){
+    this.authService.logout();
+  }
   add()
   {
     this.addProject = !this.addProject;

@@ -8,7 +8,6 @@ const routes: Routes = [
     {
         'path': '',
         'component': ThemeComponent,
-        'canActivate': [AuthGuard],
         'children': [
             {
                 'path': '',
