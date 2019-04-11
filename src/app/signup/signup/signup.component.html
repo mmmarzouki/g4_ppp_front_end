@@ -10,13 +10,36 @@
               Please sign up to continue
             </h3>
           </div>
+
+          <div *ngIf="success" class="m-alert m-alert--icon m-alert--air m-alert--square alert alert-success alert-dismissible fade show" role="alert">
+            <div class="m-alert__icon">
+              <i class="la la-warning"></i>
+            </div>
+            <div class="m-alert__text">
+              Sign up successful, you will soon be redirected to login page....
+            </div>
+            <div class="m-alert__close">
+              <button type="button" class="close" (click)="close()" aria-label="Close"></button>
+            </div>
+          </div>
+          <div *ngIf="error" class="m-alert m-alert--icon m-alert--air m-alert--square alert alert-danger alert-dismissible fade show" role="alert">
+            <div class="m-alert__icon">
+              <i class="la la-warning"></i>
+            </div>
+            <div class="m-alert__text">
+              An error has occured, please try again.
+            </div>
+            <div class="m-alert__close">
+              <button type="button" class="close" (click)="close()" aria-label="Close"></button>
+            </div>
+          </div>
           <form class="m-login__form m-form" [formGroup]="form" (ngSubmit)="onSubmit()">
               <div class="form-group m-form__group">
                 <input
                   class="form-control m-input"
                   type="text"
                   placeholder="First name"
-                  controlFormName="firstName"
+                  formControlName="firstName"
                   id="input"
                 />
               </div>
@@ -25,7 +48,7 @@
                     class="form-control m-input"
                     type="text"
                     placeholder="Last name"
-                    controlFormName="lastName"
+                    formControlName="lastName"
                   id="input"
 
                   />
@@ -35,7 +58,7 @@
                   class="form-control m-input"
                   type="text"
                   placeholder="Email"
-                  controlFormName="email"
+                  formControlName="email"
                   autocomplete="off"
                   id="input"
 
@@ -46,7 +69,7 @@
                   class="form-control m-input"
                   type="password"
                   placeholder="Password"
-                  controlFormName="password"
+                  formControlName="password"
                   id="input"
 
                 />

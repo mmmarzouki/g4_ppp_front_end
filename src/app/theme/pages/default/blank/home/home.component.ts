@@ -7,6 +7,7 @@ import { RoleType } from '../../../../../models/types/roletype';
 import * as moment from 'moment';
 import { CollaboratorRole } from '../../../../../models/CollaboratorRole';
 import { AuthService } from '../../../../../_services/auth.service';
+import { concatMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -27,7 +28,7 @@ export class HomeComponent implements OnInit {
 
 
   constructor(private api: ApiService, private fb: FormBuilder, private authService: AuthService) { 
-    this.api.classname = "collaborators"
+    this.api.classname = "users"
   }
 
   logout(){
@@ -42,9 +43,11 @@ export class HomeComponent implements OnInit {
       this.collaborators = collaborators;
     })
 
-    this.api.classname = "project"
+    this.api.classname = "projects"
 
-    this.api.getMany<Project>().subscribe(projects => {
+    var currentUser = JSON.parse(localStorage.getItem("user"));
+
+    this.api.getMany<Project>({collaborators: {$elemMatch: {collaboratorId: currentUser._id}}}).subscribe(projects => {
       this.model = projects;
     })
     this.project = new Project();
@@ -89,18 +92,26 @@ export class HomeComponent implements OnInit {
   onSubmit(){
     this.submitted = true;
     if(this.form.valid){
-      this.api.classname = "project";
+      this.api.classname = "projects";
       this.project.name = this.form.controls.name.value;
       this.project.collaborators = this.form.controls.collaborators.value;
       this.project.startDate = this.form.controls.startDate.value;
       this.project.endDate = this.form.controls.endDate.value;
       this.project.description = this.form.controls.description.value;
 
-      this.api.add(this.project).subscribe(resp => {
-        this.success = true;
-        this.model.push(this.project);
-        this.project = new Project();
-      });
+      this.api.add(this.project).pipe( 
+        concatMap( _ => {
+          this.success = true;
+          this.model.push(this.project);
+          this.project = new Project();
+          setTimeout(() => {
+            this.success = false;
+          }, 3500);
+          return this.api.getMany<Project>();
+        })
+      ).subscribe(projects => {
+        this.model = projects;
+      })
     }
   }
 }

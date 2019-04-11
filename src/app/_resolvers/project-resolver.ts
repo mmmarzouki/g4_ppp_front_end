@@ -12,12 +12,12 @@ export class ProjectResolver implements Resolve<any> {
 
   project: Project;
   constructor(private apiService: ApiService) {
-    this.apiService.classname = "project";
+    this.apiService.classname = "projects";
   }
 
 
   resolve(route: ActivatedRouteSnapshot) {
-    return this.apiService.getMany({id:  route.paramMap.get("projectid")}).pipe(tap(project => {
+    return this.apiService.getMany({_id:  route.paramMap.get("projectid")}).pipe(tap(project => {
       this.project = project[0] as Project;
     }));
 

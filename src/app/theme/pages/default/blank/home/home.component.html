@@ -35,10 +35,11 @@
             <div class="m-stack__item m-topbar__nav-wrapper">
               <ul class="m-topbar__nav m-nav m-nav--inline">
                 <li
+                style="display: flex; align-items: center;"
                   class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light"
                   m-dropdown-toggle="click"
                 >
-                <button (click)="logout()" class="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
+                <button (click)="logout()" class="btn m-btn--pill    btn-outline-metal m-btn m-btn--outline-2x ">
                   Logout
                 </button>
                 </li>
@@ -95,7 +96,7 @@
                     <ul class="m-nav">
                       <li *ngFor="let project of model" class="m-nav__item">
                         <a
-                          [routerLink]="['project', project.id, 'status']"
+                          [routerLink]="['project', project._id, 'status']"
                           class="m-nav__link"
                         >
                           <span
@@ -115,20 +116,23 @@
             </div>
           </div>
         </div>
+        <div *ngIf="success" class="alert alert-success" role="alert">
+            Project successfuly added.
+          </div>
         <div class="m-portlet" *ngIf="addProject">
           <div class="m-portlet__head">
-            <div *ngIf="success" class="alert alert-success" role="alert">
-              Project successfuly added.
-            </div>
+
             <div class="m-portlet__head-caption">
+
               <div class="m-portlet__head-title">
                 <span class="m-portlet__head-icon m--hide">
                   <i class="la la-gear"></i>
                 </span>
 
-                <h3 *ngIf="!success" class="m-portlet__head-text">
+                <h3  class="m-portlet__head-text">
                   Please fill in the form below
                 </h3>
+
               </div>
             </div>
           </div>
