@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Project} from "../../../../../../models/project";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-processes',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProcessesComponent implements OnInit {
 
-  constructor() { }
+  project: Project;
+
+  constructor(private route: ActivatedRoute) { }
+
 
   ngOnInit() {
+    this.project = this.route.snapshot.data.project[0];
   }
 
 }

@@ -2,7 +2,7 @@ import { Doc } from "./doc";
 import { ProcessType } from "./types/processtype";
 
 export class Process {
-    id: string;
+    _id: string;
     startDate: string;
     endDate: string;
     name: string;

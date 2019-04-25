@@ -1,3 +1,12 @@
-<p>
-  processes works!
-</p>
+<div class="container">
+  <div class="row">
+    <div *ngFor="let process of project.processes" class="col-md-3 col-sm-4 col-lg-2">
+      <a [routerLink]="['/project',project._id,'document',process._id]">
+        <div class="card my-3" >
+          <img src="../../../../../../../assets/img/folder.png" class="img">
+          <label class="text-center font-weight-bold cursor-pointer">{{process.name}}</label>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

@@ -24,16 +24,14 @@ const routes: Routes = [
                 resolve: { project: ProjectResolver }
             },
             {
-                path: ":projectid/process/:idprocess",
+                path: ":projectid/processes",
                 component: ProcessesComponent,
-                resolve: { project: ProjectResolver },
-                children : [
-                    {
-                        path:"/document/:iddocument",
-                        component : DocumentsComponent,
-                        resolve : {project: ProjectResolver}
-                    }
-                ]
+                resolve: { project: ProjectResolver }
+            },
+            {
+                path: ":projectid/document/:idprocess",
+                component: DocumentsComponent,
+                resolve: { project: ProjectResolver }
             },
             {
                 path: ":projectid/notifications",

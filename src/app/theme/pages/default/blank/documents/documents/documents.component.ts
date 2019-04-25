@@ -11,14 +11,12 @@ import {Process} from "../../../../../../models/process";
 })
 export class DocumentsComponent implements OnInit {
 
-    user: User;
     project: Project;
     process: Process;
 
     constructor(private route: ActivatedRoute) { }
 
     ngOnInit() {
-        this.user = JSON.parse(localStorage.getItem('user'));
         this.project = this.route.snapshot.data[0];
         this.process = this.route.snapshot.data[1];
 
