@@ -113,8 +113,7 @@
                           {{stage.endDate}}
                         </td>
                         <td class="m--align-right m--font-brand">
-                            <a
-                            [routerLink]="['/','project',model.id,'documents',stage.id]"
+                            <a [routerLink]="['/project',model._id,'document',stage._id]"
                             class="btn btn-accent m-btn m-btn--custom m-btn--icon-only m-btn--pill m-btn--icon m-btn--air"
                           >
                             <i class="la la-folder"></i>

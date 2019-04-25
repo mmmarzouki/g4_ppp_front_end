@@ -1,8 +1,11 @@
 <div class="m-subheader">
   <div class="d-flex align-items-center">
+      <a [routerLink]="['/project',project._id,'processes']" class="btn btn-accent m-btn m-btn--custom m-btn--icon-only m-btn--pill m-btn--icon m-btn--air mr-3">
+          <i class="la la-fw" aria-hidden="true" title="Return" ></i>
+      </a>
       <div class="mr-auto">
           <h4 class="m-subheader__title m-subheader__title">
-              Manage project documents here
+              {{process.name}}
           </h4>
       </div>
   </div>

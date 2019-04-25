@@ -17,8 +17,13 @@ export class DocumentsComponent implements OnInit {
     constructor(private route: ActivatedRoute) { }
 
     ngOnInit() {
-        this.project = this.route.snapshot.data[0];
-        this.process = this.route.snapshot.data[1];
+        this.project = this.route.snapshot.data.project[0];
+        const id = this.route.snapshot.params.idprocess;
+        this.project.processes.forEach(p=> {
+            if (p._id === id){
+                this.process = p;
+            }
+        });
 
     }
 
