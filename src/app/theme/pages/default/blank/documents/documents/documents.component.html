@@ -14,8 +14,8 @@
 <div class="m-content">
     <div class="container">
         <div class="row">
-            <div *ngFor="let document of process.docs" class="col-md-3 col-sm-4 col-lg-2">
-                <a [routerLink]="['/project',project._id,'document',process._id]" class="decoration-none text-dark">
+            <div *ngFor="let document of process.docs" class="col-md-3 col-sm-4 col-lg-2" title="{{document.docType}}">
+                <a class="decoration-none text-dark cursor-pointer">
                     <div class="card my-3" >
                         <img src="../../../../../../../assets/img/pdf-icon.png" class="img">
                         <label class="text-center font-weight-bold cursor-pointer text-dark">{{document.docName}}</label>
