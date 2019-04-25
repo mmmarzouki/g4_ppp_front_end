@@ -10,13 +10,14 @@ import { ScriptLoaderService } from "./_services/script-loader.service";
 import { ThemeRoutingModule } from "./theme/theme-routing.module";
 import { AuthModule } from "./auth/auth.module";
 import { ApiService } from './_services/api.service';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './theme/pages/default/blank/home/home.component';
 import { LoginComponent } from './login/login/login.component';
 import { SignupComponent } from './signup/signup/signup.component';
 import { AuthService } from './_services/auth.service';
 import { AuthGuardService } from './_services/auth-guard.service';
 import { AuthInterceptor } from './_interceptors/authinterceptor';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
     declarations: [
@@ -24,7 +25,7 @@ import { AuthInterceptor } from './_interceptors/authinterceptor';
         AppComponent,
         HomeComponent,
         LoginComponent,
-        SignupComponent
+        SignupComponent,
     ],
     imports: [
         LayoutModule,
@@ -34,15 +35,16 @@ import { AuthInterceptor } from './_interceptors/authinterceptor';
         ThemeRoutingModule,
         AuthModule,
         HttpClientModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NgbModule.forRoot()
     ],
-    providers: [ScriptLoaderService, ApiService, AuthService, AuthGuardService, 
-    
+    providers: [ScriptLoaderService, ApiService, AuthService, AuthGuardService,
+
         {
             provide: HTTP_INTERCEPTORS,
             useClass: AuthInterceptor,
             multi: true
-          }
+        }
     ],
 
     bootstrap: [AppComponent]

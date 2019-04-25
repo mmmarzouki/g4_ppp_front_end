@@ -25,7 +25,7 @@ export class HeaderNavComponent implements OnInit, AfterViewInit {
         mLayout.initHeader();
 
     }
-    logout(){
+    logout() {
         this.authService.logout();
     }
 

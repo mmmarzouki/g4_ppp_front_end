@@ -1,4 +1,4 @@
-export enum ProcessType  {
+export enum ProcessType {
     SUP = "Starting up a project",
     DP = "Directing a project",
     IP = "Initiating a project",

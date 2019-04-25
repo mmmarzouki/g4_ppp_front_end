@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-import { Observable,  } from "rxjs";
-import {  of } from "rxjs/observable/of";
-import {_throw } from "rxjs/observable/throw";
+import { Observable, } from "rxjs";
+import { of } from "rxjs/observable/of";
+import { _throw } from "rxjs/observable/throw";
 
 import {
     HttpClient,

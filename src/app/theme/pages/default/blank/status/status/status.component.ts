@@ -11,7 +11,7 @@ export class StatusComponent implements OnInit {
 
     constructor(private route: ActivatedRoute) { }
 
-    model: Project
+    model: Project;
     ngOnInit() {
         this.model = this.route.snapshot.data.project[0];
     }

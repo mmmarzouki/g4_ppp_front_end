@@ -1,7 +1,7 @@
 import { Process } from "./process";
 import { CollaboratorRole } from "./CollaboratorRole";
 
-export class Project{
+export class Project {
     id: string;
     name: string;
     description: string;

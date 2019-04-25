@@ -1,6 +1,6 @@
 import { Doc } from "./doc";
 
-export class Collaborator{
+export class Collaborator {
     id: string;
     firstName: string;
     lastName: string;

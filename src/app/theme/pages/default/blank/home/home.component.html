@@ -33,6 +33,16 @@
             class="m-topbar  m-stack m-stack--ver m-stack--general"
           >
             <div class="m-stack__item m-topbar__nav-wrapper">
+              <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button ngbDropdownItem [routerLink]="['project', project._id, 'status']" *ngFor="let project of model">
+                    {{project.name}}
+                  </button>
+              </div>
+              </div>
+            </div>
+            <div class="m-stack__item m-topbar__nav-wrapper">
               <ul class="m-topbar__nav m-nav m-nav--inline">
                 <li
                 style="display: flex; align-items: center;"

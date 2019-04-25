@@ -1,4 +1,4 @@
-export enum DocType  {
+export enum DocType {
     BenefitsManagementApproach = "Benefits Management Approach",
     BusinessCase = "Business Case",
     ChangeControlApproach = "Change Control Approach",

@@ -10,16 +10,16 @@ import { tap } from 'rxjs/operators/tap';
 @Injectable()
 export class ProjectResolver implements Resolve<any> {
 
-  project: Project;
-  constructor(private apiService: ApiService) {
-    this.apiService.classname = "projects";
-  }
+    project: Project;
+    constructor(private apiService: ApiService) {
+        this.apiService.classname = "projects";
+    }
 
 
-  resolve(route: ActivatedRouteSnapshot) {
-    return this.apiService.getMany({_id:  route.paramMap.get("projectid")}).pipe(tap(project => {
-      this.project = project[0] as Project;
-    }));
+    resolve(route: ActivatedRouteSnapshot) {
+        return this.apiService.getMany({ _id: route.paramMap.get("projectid") }).pipe(tap(project => {
+            this.project = project[0] as Project;
+        }));
 
-  }
+    }
 }
