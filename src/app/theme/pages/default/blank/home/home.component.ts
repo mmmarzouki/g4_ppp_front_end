@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
 
         this.api.getMany<Project>({ collaborators: { $elemMatch: { collaboratorId: currentUser._id } } }).subscribe(projects => {
             this.model = projects;
-        })
+        });
         this.project = new Project();
 
         this.form = this.fb.group({

@@ -13,6 +13,18 @@
 						</div>
 					</div>
 				</div>
+				<div ngbDropdown class="d-inline-block">
+					<button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
+					<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+						<ul class="list-group">
+							<li *ngFor="let p of projects" class="list-group-item">
+								<a [routerLink]="['project', p._id, 'status']" class="text-dark text-decoration-none">
+									{{project.name}}
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
 				<!-- end::Brand -->		 				<!-- begin::Topbar -->
 				<div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
 					<div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general">
