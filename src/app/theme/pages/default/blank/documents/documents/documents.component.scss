@@ -1,0 +1,24 @@
+.border-on-hover:hover{
+  background:rgba(51,181,229,.1);
+  border-radius: 10px;
+  padding: 5px;
+}
+.tala3{
+  position: relative;
+  top:-4px;
+}
+.img{
+  width: 70%;
+  height: 25%;
+  margin: auto;
+}
+.full-remaining-height {
+  height: calc( 100vh - 64px);
+}
+.decoration-none {
+  text-decoration: none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
