@@ -6,7 +6,6 @@ import { AuthService } from '../../../_services/auth.service';
 import {User} from "../../../auth/_models";
 import {ApiService} from "../../../_services/api.service";
 
-
 declare let mLayout: any;
 @Component({
     selector: "app-header-nav",
