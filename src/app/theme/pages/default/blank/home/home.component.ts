@@ -8,6 +8,7 @@ import * as moment from 'moment';
 import { CollaboratorRole } from '../../../../../models/CollaboratorRole';
 import { AuthService } from '../../../../../_services/auth.service';
 import { concatMap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'app-home',
@@ -27,9 +28,9 @@ export class HomeComponent implements OnInit {
     public collaboratorsList: FormArray;
 
 
-    constructor(private api: ApiService, private fb: FormBuilder, private authService: AuthService) {
-        this.api.classname = "users"
-    }
+  constructor(private api: ApiService, private fb: FormBuilder, private authService: AuthService,private http: HttpClient) { 
+    this.api.classname = "users"
+  }
 
     logout() {
         this.authService.logout();
@@ -46,10 +47,10 @@ export class HomeComponent implements OnInit {
 
         var currentUser = JSON.parse(localStorage.getItem("user"));
 
-        this.api.getMany<Project>({ collaborators: { $elemMatch: { collaboratorId: currentUser._id } } }).subscribe(projects => {
-            this.model = projects;
-        });
-        this.project = new Project();
+    this.http.get<Project[]>("http://localhost:3333/user/" + currentUser._id + "/projects").subscribe(projects => {
+      this.model = projects
+    })
+    this.project = new Project();
 
         this.form = this.fb.group({
             name: [null, Validators.compose([Validators.required])],
