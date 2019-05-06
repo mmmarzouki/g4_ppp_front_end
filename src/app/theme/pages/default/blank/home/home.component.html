@@ -262,7 +262,7 @@
                         <option value="" disabled selected
                           >Choose collaborator</option
                         >
-                        <option *ngFor="let c of collaborators" [value]="c.id">
+                        <option *ngFor="let c of collaborators" [value]="c._id">
                           {{ c.firstName }} {{ c.lastName }}
                         </option>
                       </select>

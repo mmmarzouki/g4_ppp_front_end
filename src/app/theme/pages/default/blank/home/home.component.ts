@@ -108,7 +108,8 @@ export class HomeComponent implements OnInit {
           setTimeout(() => {
             this.success = false;
           }, 3500);
-          return this.api.getMany<Project>();
+          var currentUser = JSON.parse(localStorage.getItem("user"));
+          return this.http.get<Project[]>("http://localhost:3333/user/" + currentUser._id + "/projects");
         })
       ).subscribe(projects => {
         this.model = projects;
