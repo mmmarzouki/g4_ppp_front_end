@@ -1,8 +1,9 @@
 import { DocType } from "./types/doctype";
 
 export class Doc {
-    id: string;
+    _id: string;
     docName: string;
+    docPath: string;
     docType: DocType;
-    docFile: string;
+    permittedRoles: string[];
 }
