@@ -16,6 +16,8 @@ export class DocumentsComponent implements OnInit {
     project: Project;
     process: Process;
 
+    fileOpened = false;
+
     constructor(private route: ActivatedRoute, private documentService: DocumentService) { }
 
     ngOnInit() {
@@ -28,14 +30,15 @@ export class DocumentsComponent implements OnInit {
         });
     }
     exploreDocument(document: Doc){
+        this.fileOpened = false;
         const collaborator = JSON.parse(localStorage.getItem('user'));
         let role = '';
         this.project.collaborators.forEach(collab => {
             if(collab.collaboratorId === collaborator._id)
                 role = collab.role;
         });
-        if (document.permittedRoles.indexOf(role) === 0){
-            //TODO: add alert
+        if (document.permittedRoles.indexOf(role) === -1){
+            this.fileOpened = true;
         }
         else {
             this.documentService.viewDocument(document).subscribe(res => {
@@ -44,4 +47,7 @@ export class DocumentsComponent implements OnInit {
         }
     }
 
+    resetFileOpened(){
+        this.fileOpened = false;
+    }
 }

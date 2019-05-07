@@ -1,3 +1,7 @@
+<div class="alert alert-danger mt-5 default-cursor" (click)="resetFileOpened()" title="close this message" role="alert" *ngIf="fileOpened">
+    You don't have the right to open the file
+</div>
+
 <div class="m-subheader">
   <div class="d-flex align-items-center">
       <a [routerLink]="['/project',project._id,'processes']" class="btn btn-accent m-btn m-btn--custom m-btn--icon-only m-btn--pill m-btn--icon m-btn--air mr-3">
@@ -10,6 +14,8 @@
       </div>
   </div>
 </div>
+
+
 <!-- END: Subheader -->
 <div class="m-content">
     <div class="container">
@@ -17,7 +23,7 @@
             <div *ngFor="let document of process.docs" class="col-md-3 col-sm-4 col-lg-2" title="{{document.docType}}">
                 <a (click)="exploreDocument(document)" class="decoration-none text-dark cursor-pointer">
                     <div class="card my-3" >
-                        <img src="../../../../../../../assets/img/pdf-icon.png" class="img">
+                        <img src="../../../../../../../assets/img/pdf-icon.png" class="img" alt="pdf-icon">
                         <label class="text-center font-weight-bold cursor-pointer text-dark">{{document.docName}}</label>
                     </div>
                 </a>
