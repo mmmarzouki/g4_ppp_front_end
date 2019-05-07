@@ -5,6 +5,7 @@ import { Project } from '../../../models/project';
 import { AuthService } from '../../../_services/auth.service';
 import {User} from "../../../auth/_models";
 import {ApiService} from "../../../_services/api.service";
+import { HttpClient } from '@angular/common/http';
 
 declare let mLayout: any;
 @Component({
@@ -16,7 +17,7 @@ export class HeaderNavComponent implements OnInit, AfterViewInit {
 
     project: Project;
     projects: Project[];
-    constructor(private projectResolver: ProjectResolver, private authService: AuthService,private api: ApiService) {
+    constructor(private projectResolver: ProjectResolver, private authService: AuthService,private api: ApiService, private http: HttpClient) {
 
     }
     ngOnInit() {
@@ -24,9 +25,10 @@ export class HeaderNavComponent implements OnInit, AfterViewInit {
 
         const user = JSON.parse(localStorage.getItem("user"));
 
-        this.api.getMany<Project>({ collaborators: { $elemMatch: { collaboratorId: user._id } } }).subscribe(projects => {
+        this.http.get<Project[]>("http://localhost:3333/user/" + user._id + "/projects").subscribe(projects => {
             this.projects = projects;
-        });
+            console.log(this.projects);
+          })
     }
     ngAfterViewInit() {
 
