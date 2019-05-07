@@ -18,6 +18,7 @@ import { AuthService } from './_services/auth.service';
 import { AuthGuardService } from './_services/auth-guard.service';
 import { AuthInterceptor } from './_interceptors/authinterceptor';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { DocumentService } from './_services/document.service';
 
 @NgModule({
     declarations: [
@@ -38,7 +39,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
         ReactiveFormsModule,
         NgbModule.forRoot()
     ],
-    providers: [ScriptLoaderService, ApiService, AuthService, AuthGuardService,
+    providers: [DocumentService, HttpClientModule,ScriptLoaderService, ApiService, AuthService, AuthGuardService,
 
         {
             provide: HTTP_INTERCEPTORS,

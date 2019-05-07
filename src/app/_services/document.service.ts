@@ -4,23 +4,25 @@ import { Project } from '../models/project';
 import { Process } from '../models/process';
 import { Doc } from '../models/doc';
 import { Observable } from 'rxjs';
+import { ResponseContentType } from '@angular/http';
 
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+const httpOptionsFile = {
+  headers: new HttpHeaders({ 'responseType': 'application/pdf' })
 };
 
 
 @Injectable()
 export class DocumentService {
 
-  private baseUrl = 'http://localhost:3333/doc/'
+  private baseUrl = 'http://localhost:3333/showdoc'
 
   constructor(private http: HttpClient) { }
 
-  public viewDocument(project: Project, process: Process, doc: Doc): Observable<any> {
-    const fullUrl = this.baseUrl + project.name +'/' + process.name + '/' + doc.docName ;
-    return this.http.get(fullUrl, httpOptions);
+
+  public viewDocument(doc: Doc): Observable<any> {
+    let body = {path: doc.docPath};
+    return this.http.post(this.baseUrl,body, httpOptionsFile);
   }
 
 }

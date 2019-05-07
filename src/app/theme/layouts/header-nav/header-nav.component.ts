@@ -27,7 +27,6 @@ export class HeaderNavComponent implements OnInit, AfterViewInit {
         this.api.getMany<Project>({ collaborators: { $elemMatch: { collaboratorId: user._id } } }).subscribe(projects => {
             this.projects = projects;
         });
-        console.log(this.projects);
     }
     ngAfterViewInit() {
 

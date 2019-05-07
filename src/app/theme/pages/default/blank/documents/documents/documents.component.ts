@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from "../../../../../../auth/_models";
 import {Project} from "../../../../../../models/project";
 import {ActivatedRoute} from "@angular/router";
 import {Process} from "../../../../../../models/process";
+import { Doc } from '../../../../../../models/doc';
+import { HttpClient } from '@angular/common/http';
+import { DocumentService } from '../../../../../../_services/document.service';
 
 @Component({
     selector: 'app-documents',
@@ -14,7 +16,7 @@ export class DocumentsComponent implements OnInit {
     project: Project;
     process: Process;
 
-    constructor(private route: ActivatedRoute) { }
+    constructor(private route: ActivatedRoute, private documentService: DocumentService) { }
 
     ngOnInit() {
         this.project = this.route.snapshot.data.project[0];
@@ -24,7 +26,22 @@ export class DocumentsComponent implements OnInit {
                 this.process = p;
             }
         });
-
+    }
+    exploreDocument(document: Doc){
+        const collaborator = JSON.parse(localStorage.getItem('user'));
+        let role = '';
+        this.project.collaborators.forEach(collab => {
+            if(collab.collaboratorId === collaborator._id)
+                role = collab.role;
+        });
+        if (document.permittedRoles.indexOf(role) === 0){
+            //TODO: add alert
+        }
+        else {
+            this.documentService.viewDocument(document).subscribe(res => {
+                console.log('done')
+            })
+        }
     }
 
 }
