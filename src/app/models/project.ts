@@ -1,5 +1,6 @@
 import { Process } from "./process";
 import { CollaboratorRole } from "./CollaboratorRole";
+import { Doc } from "./doc";
 
 export class Project {
     id: string;
@@ -9,4 +10,5 @@ export class Project {
     endDate: string;
     processes: Process[];
     collaborators: CollaboratorRole[];
+    mandate: Doc;
 }
