@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Project } from '../models/project';
-import { Process } from '../models/process';
 import { Doc } from '../models/doc';
 import { Observable } from 'rxjs';
-import { ResponseContentType } from '@angular/http';
 
 
 const httpOptionsFile = {
