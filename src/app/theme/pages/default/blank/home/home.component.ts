@@ -9,6 +9,7 @@ import { CollaboratorRole } from '../../../../../models/CollaboratorRole';
 import { AuthService } from '../../../../../_services/auth.service';
 import { concatMap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { ProjectService } from '../../../../../_services/project.service';
 
 @Component({
     selector: 'app-home',
@@ -24,11 +25,12 @@ export class HomeComponent implements OnInit {
     collaborators: Collaborator[];
     submitted = false;
     success = false;
+    file: any;   
     public form: FormGroup;
     public collaboratorsList: FormArray;
 
 
-  constructor(private api: ApiService, private fb: FormBuilder, private authService: AuthService,private http: HttpClient) { 
+  constructor(private projectService: ProjectService, private api: ApiService, private fb: FormBuilder, private authService: AuthService,private http: HttpClient) { 
     this.api.classname = "users"
   }
 
@@ -57,7 +59,8 @@ export class HomeComponent implements OnInit {
             description: [null, Validators.required],
             startDate: [moment().format('YYYY-MM-DD'), Validators.required],
             endDate: [moment().format('YYYY-MM-DD'), Validators.required],
-            collaborators: this.fb.array([this.createCollaborator()])
+            collaborators: this.fb.array([this.createCollaborator()]),
+            fileHidden: [null, Validators.required]
         });
         this.collaboratorsList = this.form.get('collaborators') as FormArray;
     }
@@ -87,17 +90,36 @@ export class HomeComponent implements OnInit {
     get Roles() {
         return Object.values(this.roles);
     }
+
+    setFile(event) {
+        this.file = event.target.files[0];
+        this.form.controls['fileHidden'].setValue( this.file.name );
+    }
+
     onSubmit() {
         this.submitted = true;
         if (this.form.valid) {
-            this.api.classname = "projects";
+
             this.project.name = this.form.controls.name.value;
             this.project.collaborators = this.form.controls.collaborators.value;
             this.project.startDate = this.form.controls.startDate.value;
             this.project.endDate = this.form.controls.endDate.value;
             this.project.description = this.form.controls.description.value;
 
-            this.api.add(this.project).pipe(
+            const formData = new FormData();
+            formData.append('name', this.project.name);
+            formData.append('startDate', this.project.startDate);
+            formData.append('endDate', this.project.endDate);
+            formData.append('description', this.project.description);
+            this.project.collaborators.forEach(element => {
+                formData.append('collaborators',element.collaboratorId);
+                formData.append('roles',element.role);
+            })
+            formData.append('mandate',this.file);
+
+            this.api.classname = "projects";
+            
+            this.projectService.create(formData).pipe(
                 concatMap(_ => {
                     this.success = true;
                     this.model.push(this.project);
@@ -110,6 +132,7 @@ export class HomeComponent implements OnInit {
             ).subscribe(projects => {
                 this.model = projects;
             })
+
         }
     }
 }

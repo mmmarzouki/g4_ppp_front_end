@@ -1,16 +1,8 @@
 <!-- begin::Header -->
-<header
-  id="m_header"
-  class="m-grid__item m-header"
-  minimize="minimize"
-  minimize-offset="200"
-  minimize-mobile-offset="200"
-  appunwraptag=""
->
+<header id="m_header" class="m-grid__item m-header" minimize="minimize" minimize-offset="200"
+  minimize-mobile-offset="200" appunwraptag="">
   <div class="m-header__top">
-    <div
-      class="m-container m-container--responsive m-container--xxl m-container--full-height m-page__container"
-    >
+    <div class="m-container m-container--responsive m-container--xxl m-container--full-height m-page__container">
       <div class="m-stack m-stack--ver m-stack--desktop">
         <!-- begin::Brand -->
         <div class="m-stack__item m-brand">
@@ -24,14 +16,8 @@
         </div>
         <!-- end::Brand -->
         <!-- begin::Topbar -->
-        <div
-          class="m-stack__item m-stack__item--fluid m-header-head"
-          id="m_header_nav"
-        >
-          <div
-            id="m_header_topbar"
-            class="m-topbar  m-stack m-stack--ver m-stack--general"
-          >
+        <div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
+          <div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general">
             <div class="m-stack__item m-topbar__nav-wrapper">
               <div ngbDropdown class="d-inline-block mt-4">
                 <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Select Project</button>
@@ -48,14 +34,12 @@
             </div>
             <div class="m-stack__item m-topbar__nav-wrapper">
               <ul class="m-topbar__nav m-nav m-nav--inline">
-                <li
-                style="display: flex; align-items: center;"
+                <li style="display: flex; align-items: center;"
                   class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light"
-                  m-dropdown-toggle="click"
-                >
-                <button (click)="logout()" class="btn m-btn--pill    btn-outline-metal m-btn m-btn--outline-2x ">
-                  Logout
-                </button>
+                  m-dropdown-toggle="click">
+                  <button (click)="logout()" class="btn m-btn--pill    btn-outline-metal m-btn m-btn--outline-2x ">
+                    Logout
+                  </button>
                 </li>
               </ul>
             </div>
@@ -70,277 +54,229 @@
 
 <div
   class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-container--responsive m-container--xxl m-page__container m-body"
-  id="home"
-  >
-    <div class="m-grid__item m-grid__item--fluid m-wrapper d-flex justify-content-center"  >
-      <div class="project-home col-6">
-        <div class="my-projects">
-          <div
-            class="m-portlet m-portlet--tabs m-portlet--brand m-portlet--head-solid-bg m-portlet--head-sm m-portlet--bordered"
-          >
-            <div class="m-portlet__head">
-              <div class="m-portlet__head-caption">
-                <div class="m-portlet__head-title">
-                  <h3 class="m-portlet__head-text">
-                    My projects
-                    <small>
-                      Choose a project to continue
-                    </small>
-                  </h3>
-                </div>
-              </div>
-              <div class="m-portlet__head-tools">
-                <ul
-                  class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand  m-tabs-line--right m-tabs-line-danger"
-                  role="tablist"
-                >
-                  <li class="nav-item m-tabs__item">
-                    <button class="nav-link m-tabs__link" (click)="add()">
-                      <em class="flaticon-add-circular-button"></em>
-                      Create project
-                    </button>
-                  </li>
-                </ul>
+  id="home">
+  <div class="m-grid__item m-grid__item--fluid m-wrapper d-flex justify-content-center">
+    <div class="project-home col-6">
+      <div class="my-projects">
+        <div
+          class="m-portlet m-portlet--tabs m-portlet--brand m-portlet--head-solid-bg m-portlet--head-sm m-portlet--bordered">
+          <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+              <div class="m-portlet__head-title">
+                <h3 class="m-portlet__head-text">
+                  My projects
+                  <small>
+                    Choose a project to continue
+                  </small>
+                </h3>
               </div>
             </div>
-            <div class="m-portlet__body" id="projects">
-              <div class="tab-content">
-                <div class="m-demo">
-                  <div class="m-demo__preview">
-                    <ul class="m-nav">
-                      <li *ngFor="let project of model" class="m-nav__item">
-                        <a
-                          [routerLink]="['project', project._id, 'status']"
-                          class="m-nav__link"
-                        >
-                          <span
-                            class="m-nav__link-bullet m-nav__link-bullet--line"
-                          >
-                            <span></span>
-                          </span>
-                          <span class="m-nav__link-text">
-                            {{ project.name }}
-                          </span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
+            <div class="m-portlet__head-tools">
+              <ul class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand  m-tabs-line--right m-tabs-line-danger"
+                role="tablist">
+                <li class="nav-item m-tabs__item">
+                  <button class="nav-link m-tabs__link" (click)="add()">
+                    <em class="flaticon-add-circular-button"></em>
+                    Create project
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="m-portlet__body" id="projects">
+            <div class="tab-content">
+              <div class="m-demo">
+                <div class="m-demo__preview">
+                  <ul class="m-nav">
+                    <li *ngFor="let project of model" class="m-nav__item">
+                      <a [routerLink]="['project', project._id, 'status']" class="m-nav__link">
+                        <span class="m-nav__link-bullet m-nav__link-bullet--line">
+                          <span></span>
+                        </span>
+                        <span class="m-nav__link-text">
+                          {{ project.name }}
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div *ngIf="success" class="alert alert-success" role="alert">
-            Project successfuly added.
-          </div>
-        <div class="m-portlet" *ngIf="addProject">
-          <div class="m-portlet__head">
+      </div>
+      <div *ngIf="success" class="alert alert-success" role="alert">
+        Project successfully added.
+      </div>
+      <div class="m-portlet" *ngIf="addProject">
+        <div class="m-portlet__head">
 
-            <div class="m-portlet__head-caption">
+          <div class="m-portlet__head-caption">
 
-              <div class="m-portlet__head-title">
-                <span class="m-portlet__head-icon m--hide">
-                  <em class="la la-gear"></em>
-                </span>
+            <div class="m-portlet__head-title">
+              <span class="m-portlet__head-icon m--hide">
+                <em class="la la-gear"></em>
+              </span>
 
-                <h3  class="m-portlet__head-text">
-                  Please fill in the form below
-                </h3>
+              <h3 class="m-portlet__head-text">
+                Please fill in the form below
+              </h3>
 
-              </div>
             </div>
           </div>
-          <!--begin::Form-->
-          <form class="m-form" [formGroup]="form" (ngSubmit)="onSubmit()">
-            <div class="m-portlet__body">
-              <div class="m-form__section m-form__section--first">
-                <div class="form-group m-form__group row">
-                  <label class="col-lg-3 col-form-label">
-                    Project Name
-                  </label>
-                  <div class="col-lg-6">
-                    <input
-                      name="name"
-                      formControlName="name"
-                      type="text"
-                      class="form-control m-input"
-                      placeholder="Enter project name"
-                    />
-                    <span
-                      class="m-form__help text-danger"
-                      *ngIf="!form?.controls.name.valid && submitted"
-                    >
-                      Please enter a project name
+        </div>
+        <!--begin::Form-->
+        <form class="m-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="m-portlet__body">
+            <div class="m-form__section m-form__section--first">
+              <div class="form-group m-form__group row">
+                <label class="col-lg-3 col-form-label">
+                  Project Name
+                </label>
+                <div class="col-lg-6">
+                  <input name="name" formControlName="name" type="text" class="form-control m-input"
+                    placeholder="Enter project name" />
+                  <span class="m-form__help text-danger" *ngIf="!form?.controls.name.valid && submitted">
+                    Please enter a project name
+                  </span>
+                </div>
+              </div>
+              <div class="form-group m-form__group row">
+                <label class="col-lg-3 col-form-label">
+                  Project description
+                </label>
+                <div class="col-lg-6">
+                  <input name="description" type="text" formControlName="description" class="form-control m-input"
+                    placeholder="Enter project description" />
+                  <span class="m-form__help text-danger" *ngIf="!form?.controls.description.valid && submitted">
+                    Please enter a project description
+                  </span>
+                </div>
+              </div>
+              <div class="form-group m-form__group row">
+                <label class="col-form-label col-lg-3 col-sm-12">
+                  Start date
+                </label>
+                <div class="col-lg-4 col-md-9 col-sm-12">
+                  <div class="input-group date">
+                    <input name="startDate" formControlName="startDate" type="date" class="form-control m-input"
+                      id="m_datepicker_3" />
+                    <span class="m-form__help text-danger" *ngIf="!form?.controls.startDate.valid && submitted">
+                      Please enter a start date
                     </span>
-                  </div>
-                </div>
-                <div class="form-group m-form__group row">
-                  <label class="col-lg-3 col-form-label">
-                    Project description
-                  </label>
-                  <div class="col-lg-6">
-                    <input
-                      name="description"
-                      type="text"
-                      formControlName="description"
-                      class="form-control m-input"
-                      placeholder="Enter project description"
-                    />
-                    <span
-                      class="m-form__help text-danger"
-                      *ngIf="!form?.controls.description.valid && submitted"
-                    >
-                      Please enter a project description
-                    </span>
-                  </div>
-                </div>
-                <div class="form-group m-form__group row">
-                  <label class="col-form-label col-lg-3 col-sm-12">
-                    Start date
-                  </label>
-                  <div class="col-lg-4 col-md-9 col-sm-12">
-                    <div class="input-group date">
-                      <input
-                        name="startDate"
-                        formControlName="startDate"
-                        type="date"
-                        class="form-control m-input"
-                        id="m_datepicker_3"
-                      />
-                      <span
-                        class="m-form__help text-danger"
-                        *ngIf="!form?.controls.startDate.valid && submitted"
-                      >
-                        Please enter a start date
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form-group m-form__group row">
-                  <label class="col-form-label col-lg-3 col-sm-12">
-                    End date
-                  </label>
-                  <div class="col-lg-4 col-md-9 col-sm-12">
-                    <div class="input-group date">
-                      <input
-                        name="endDate"
-                        formControlName="endDate"
-                        type="date"
-                        class="form-control m-input"
-                        id="m_datepicker_3"
-                      />
-                      <span
-                        class="m-form__help text-danger"
-                        *ngIf="!form?.controls.endDate.valid && submitted"
-                      >
-                        Please enter an end date.
-                      </span>
-                    </div>
                   </div>
                 </div>
               </div>
 
-              <div class="m-form__section m-form__section--first">
-                <div class="m-form__heading d-flex justify-content-between">
-                  <h3 class="m-form__heading-title">
-                    Collaborators
-                  </h3>
-                  <div class="d-flex justify-content-end">
-                    <button
-                      type="button"
-                      (click)="addCollaborator()"
-                      class="btn btn-accent m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill m-btn--air"
-                    >
-                      <em class="la la-plus"></em>
-                    </button>
+              <div class="form-group m-form__group row">
+                <label class="col-form-label col-lg-3 col-sm-12">
+                  End date
+                </label>
+                <div class="col-lg-4 col-md-9 col-sm-12">
+                  <div class="input-group date">
+                    <input name="endDate" formControlName="endDate" type="date" class="form-control m-input"
+                      id="m_datepicker_3" />
+                    <span class="m-form__help text-danger" *ngIf="!form?.controls.endDate.valid && submitted">
+                      Please enter an end date.
+                    </span>
                   </div>
                 </div>
-                <div
-                  formArrayName="collaborators"
-                  class="form-group m-form__group row d-flex justify-content-center"
-                  *ngFor="
+              </div>
+
+              <div class="form-group m-form__group row">
+                <label class="col-form-label col-lg-3 col-sm-12">
+                  Project Mandate
+                </label>
+                <div class="col-lg-4 col-md-9 col-sm-12">
+                  <div class="input-group date">
+                    <input (change)="setFile($event)" name="mandate" type="file" class="form-control m-input"
+                      id="mandate" />
+                    <input type="hidden" id="fileHidden" name="fileHidden" formControlName="fileHidden" />
+                    <span class="m-form__help text-danger" *ngIf="!form?.controls.fileHidden.valid && submitted">
+                      Please select the mandate project.
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="m-form__section m-form__section--first">
+              <div class="m-form__heading d-flex justify-content-between">
+                <h3 class="m-form__heading-title">
+                  Collaborators
+                </h3>
+                <div class="d-flex justify-content-end">
+                  <button type="button" (click)="addCollaborator()"
+                    class="btn btn-accent m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill m-btn--air">
+                    <em class="la la-plus"></em>
+                  </button>
+                </div>
+              </div>
+              <div formArrayName="collaborators" class="form-group m-form__group row d-flex justify-content-center"
+                *ngFor="
                     let collaborator of collaboratorsFormGroup.controls;
                     let i = index
-                  "
-                >
-                  <div [formGroupName]="i" class="row">
-                    <label class="col-lg-2 col-form-label">
-                      Collaborator:
-                    </label>
-                    <div class="col-lg-4">
-                      <select
-                        class="form-control m-input"
-                        formControlName="collaboratorId"
-                      >
-                        <option value="" disabled selected
-                          >Choose collaborator</option
-                        >
-                        <option *ngFor="let c of collaborators" [value]="c._id">
-                          {{ c.firstName }} {{ c.lastName }}
-                        </option>
-                      </select>
-                      <span
-                        class="m-form__help text-danger"
-                        *ngIf="
+                  ">
+                <div [formGroupName]="i" class="row">
+                  <label class="col-lg-2 col-form-label">
+                    Collaborator:
+                  </label>
+                  <div class="col-lg-4">
+                    <select class="form-control m-input" formControlName="collaboratorId">
+                      <option value="" disabled selected>Choose collaborator</option>
+                      <option *ngFor="let c of collaborators" [value]="c._id">
+                        {{ c.firstName }} {{ c.lastName }}
+                      </option>
+                    </select>
+                    <span class="m-form__help text-danger" *ngIf="
                           !collaborator.controls.collaboratorId.valid &&
                           submitted
-                        "
-                      >
-                        Please choose a collaborator.
-                      </span>
-                    </div>
-                    <label class="col-lg-1 col-form-label">
-                      Role
-                    </label>
-                    <div class="col-lg-4">
-                      <select
-                        class="form-control m-input"
-                        formControlName="role"
-                      >
-                        <option value="" disabled selected>Choose role</option>
-                        <option *ngFor="let role of Roles" [value]="role">
-                          {{ role }}
-                        </option>
-                      </select>
-                      <span
-                        class="m-form__help text-danger"
-                        *ngIf="!collaborator.controls.role.valid && submitted"
-                      >
-                        Please choose a role.
-                      </span>
-                    </div>
-                    <div class="col-lg-1">
-                      <button
-                        (click)="removeLastCollaborator(i)"
-                        type="button"
-                        class="btn btn-danger m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill m-btn--air"
-                      >
-                        <em class="la la-minus"></em>
-                      </button>
-                    </div>
+                        ">
+                      Please choose a collaborator.
+                    </span>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="m-portlet__foot m-portlet__foot--fit">
-              <div class="m-form__actions m-form__actions">
-                <div class="row">
-                  <div class="col-lg-3"></div>
-                  <div class="col-lg-6">
-                    <button type="submit" class="btn btn-success">
-                      Submit
-                    </button>
-                    <button type="reset" class="btn btn-secondary">
-                      Cancel
+                  <label class="col-lg-1 col-form-label">
+                    Role
+                  </label>
+                  <div class="col-lg-4">
+                    <select class="form-control m-input" formControlName="role">
+                      <option value="" disabled selected>Choose role</option>
+                      <option *ngFor="let role of Roles" [value]="role">
+                        {{ role }}
+                      </option>
+                    </select>
+                    <span class="m-form__help text-danger" *ngIf="!collaborator.controls.role.valid && submitted">
+                      Please choose a role.
+                    </span>
+                  </div>
+                  <div class="col-lg-1">
+                    <button (click)="removeLastCollaborator(i)" type="button"
+                      class="btn btn-danger m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill m-btn--air">
+                      <em class="la la-minus"></em>
                     </button>
                   </div>
                 </div>
               </div>
             </div>
-          </form>
-          <!--end::Form-->
-        </div>
+          </div>
+          <div class="m-portlet__foot m-portlet__foot--fit">
+            <div class="m-form__actions m-form__actions">
+              <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                  <button type="submit" class="btn btn-success">
+                    Submit
+                  </button>
+                  <button type="reset" class="btn btn-secondary">
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <!--end::Form-->
       </div>
     </div>
   </div>
+</div>
