@@ -59,6 +59,7 @@ export class HomeComponent implements OnInit {
             description: [null, Validators.required],
             startDate: [moment().format('YYYY-MM-DD'), Validators.required],
             endDate: [moment().format('YYYY-MM-DD'), Validators.required],
+            processEndDate: [moment().format('YYYY-MM-DD'), Validators.required],
             collaborators: this.fb.array([this.createCollaborator()]),
             fileHidden: [null, Validators.required]
         });
@@ -111,6 +112,8 @@ export class HomeComponent implements OnInit {
             formData.append('startDate', this.project.startDate);
             formData.append('endDate', this.project.endDate);
             formData.append('description', this.project.description);
+            formData.append('processEndDate',this.form.controls.processEndDate.value);
+
             this.project.collaborators.forEach(element => {
                 formData.append('collaborators',element.collaboratorId);
                 formData.append('roles',element.role);
