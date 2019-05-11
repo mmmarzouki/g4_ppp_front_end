@@ -1,9 +1,17 @@
-<div class="container">
+<div class="container mt-3">
   <div class="row">
+    <div class="col-md-3 col-sm-4 col-lg-2 cursor-pointer">
+      <a (click)="openMandate()" class="decoration-none text-dark">
+        <div class="card my-3" >
+          <img src="../../../../../../../assets/img/pdf-icon.png" class="img" alt="PDF FILE">
+          <label class="text-center font-weight-bold cursor-pointer text-dark">Project Mandate</label>
+        </div>
+      </a>
+    </div>
     <div *ngFor="let process of project.processes" class="col-md-3 col-sm-4 col-lg-2">
       <a [routerLink]="['/project',project._id,'document',process._id]" class="decoration-none text-dark">
         <div class="card my-3" >
-          <img src="../../../../../../../assets/img/folder.png" class="img">
+          <img src="../../../../../../../assets/img/folder.png" class="img" alt="PROCESS">
           <label class="text-center font-weight-bold cursor-pointer text-dark">{{process.name}}</label>
         </div>
       </a>
