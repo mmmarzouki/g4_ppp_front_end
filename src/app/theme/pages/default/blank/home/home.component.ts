@@ -54,6 +54,7 @@ export class HomeComponent implements OnInit {
     })
     this.project = new Project();
 
+    let regex = new RegExp("([a-zA-Z0-9])+(.pdf)");
         this.form = this.fb.group({
             name: [null, Validators.compose([Validators.required])],
             description: [null, Validators.required],
@@ -61,7 +62,7 @@ export class HomeComponent implements OnInit {
             endDate: [moment().format('YYYY-MM-DD'), Validators.required],
             processEndDate: [moment().format('YYYY-MM-DD'), Validators.required],
             collaborators: this.fb.array([this.createCollaborator()]),
-            fileHidden: [null, Validators.required]
+            fileHidden: [null, Validators.compose([Validators.pattern(regex), Validators.required])]
         });
         this.collaboratorsList = this.form.get('collaborators') as FormArray;
     }
@@ -95,6 +96,7 @@ export class HomeComponent implements OnInit {
     setFile(event) {
         this.file = event.target.files[0];
         this.form.controls['fileHidden'].setValue( this.file.name );
+        console.log(this.file.name);
     }
 
     onSubmit() {
