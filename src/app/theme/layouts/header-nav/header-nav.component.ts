@@ -27,7 +27,6 @@ export class HeaderNavComponent implements OnInit, AfterViewInit {
 
         this.http.get<Project[]>("http://localhost:3333/user/" + user._id + "/projects").subscribe(projects => {
             this.projects = projects;
-            console.log(this.projects);
           })
     }
     ngAfterViewInit() {
