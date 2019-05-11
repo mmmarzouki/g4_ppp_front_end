@@ -3,7 +3,7 @@ import { CollaboratorRole } from "./CollaboratorRole";
 import { Doc } from "./doc";
 
 export class Project {
-    id: string;
+    _id: string;
     name: string;
     description: string;
     startDate: string;
