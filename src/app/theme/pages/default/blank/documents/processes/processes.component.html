@@ -1,27 +1,32 @@
-<div class="container mt-3">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-3 col-sm-4 col-lg-2 cursor-pointer">
-      <a (click)="openMandate()" class="decoration-none text-dark">
-        <div class="card my-3" >
-          <img src="../../../../../../../assets/img/pdf-icon.png" class="img" alt="PDF FILE">
-          <label class="text-center font-weight-bold cursor-pointer text-dark">Project Mandate</label>
+    <div class="col-sm-11 col-md-11 col-lg-11">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3 col-sm-4 col-lg-2 cursor-pointer">
+            <a (click)="openMandate()" class="decoration-none text-dark">
+              <div class="card my-3">
+                <img src="../../../../../../../assets/img/pdf-icon.png" class="img" alt="PDF FILE">
+                <label class="text-center font-weight-bold cursor-pointer text-dark">Project Mandate</label>
+              </div>
+            </a>
+          </div>
+          <div *ngFor="let process of project.processes" class="col-md-3 col-sm-4 col-lg-2">
+            <a [routerLink]="['/project',project._id,'document',process._id]" class="decoration-none text-dark">
+              <div class="card my-3">
+                <img src="../../../../../../../assets/img/folder.png" class="img" alt="PROCESS">
+                <label class="text-center font-weight-bold cursor-pointer text-dark">{{process.name}}</label>
+              </div>
+            </a>
+          </div>
         </div>
-      </a>
+      </div>
     </div>
-    <div *ngFor="let process of project.processes" class="col-md-3 col-sm-4 col-lg-2">
-      <a [routerLink]="['/project',project._id,'document',process._id]" class="decoration-none text-dark">
-        <div class="card my-3" >
-          <img src="../../../../../../../assets/img/folder.png" class="img" alt="PROCESS">
-          <label class="text-center font-weight-bold cursor-pointer text-dark">{{process.name}}</label>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-3 col-sm-4 col-lg-2 cursor-pointer">
-      <a (click)="openModal()" class="decoration-none text-dark">
-        <div class="card my-3" >
-          <img src="../../../../../../../assets/img/addDocument.png" class="img" alt="Create document">
-          <label class="text-center font-weight-bold cursor-pointer text-dark">Add Document</label>
-        </div>
+    <div class="col-sm-1 col-md-1 col-lg-1">
+      <a (click)="openModal()"
+        class="my-3 mx-auto big-icon btn btn-accent m-btn m-btn--custom m-btn--icon-only m-btn--pill m-btn--icon m-btn--air big-icon mr-3"
+        style="width: 70px; height: 70px;">
+        <i class="la la-plus" style="font-size: 36px" aria-hidden="true" title="create new document"></i>
       </a>
     </div>
   </div>
