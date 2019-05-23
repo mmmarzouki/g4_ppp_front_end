@@ -1,5 +1,9 @@
 export enum RoleType {
-    PE = "Project Executive",
+    PB = "Project Board",
+    CA = "Change Authority",
     PM = "Project Manager",
-    DEV = "Developer"
+    PS = "Project Support",
+    PA = "Project Assurance",
+    TM = "Team Manager",
+    M = "Project Member"
 }
