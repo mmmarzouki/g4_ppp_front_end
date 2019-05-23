@@ -3,6 +3,9 @@ import { Project } from "../../../../../../models/project";
 import { ActivatedRoute } from "@angular/router";
 import { DocumentService } from '../../../../../../_services/document.service';
 
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from '../creation/modal/modal.component';
+
 @Component({
     selector: 'app-processes',
     templateUrl: './processes.component.html',
@@ -12,7 +15,7 @@ export class ProcessesComponent implements OnInit {
 
     project: Project;
 
-    constructor(private route: ActivatedRoute, private documentService: DocumentService) { }
+    constructor(private route: ActivatedRoute, private documentService: DocumentService, private modalService: NgbModal) { }
 
 
     ngOnInit() {
@@ -23,4 +26,10 @@ export class ProcessesComponent implements OnInit {
         this.documentService.openMandate(this.project).subscribe(res => {
         });
     }
+
+    openModal() {
+        const modalRef = this.modalService.open(ModalComponent, { size: 'lg' });
+        modalRef.componentInstance.name = 'World';
+    }
+
 }

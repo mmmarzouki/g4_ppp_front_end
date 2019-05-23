@@ -10,6 +10,9 @@ import { StatusComponent } from "./status/status/status.component";
 import { ProjectResolver } from "../../../../_resolvers/project-resolver";
 import { ApiService } from "../../../../_services/api.service";
 import { ProcessesComponent } from './documents/processes/processes.component';
+import { ModalComponent } from './documents/creation/modal/modal.component';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { FormsModule } from "@angular/forms";
 
 const routes: Routes = [
 
@@ -48,7 +51,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [CommonModule, RouterModule.forChild(routes), LayoutModule],
+    imports: [CommonModule, RouterModule.forChild(routes), LayoutModule, NgbModule, FormsModule],
     exports: [RouterModule],
     declarations: [
         BlankComponent,
@@ -56,8 +59,10 @@ const routes: Routes = [
         DocumentsComponent,
         StatusComponent,
         ProcessesComponent,
+        ModalComponent,
 
     ],
-    providers: []
+    providers: [],
+    entryComponents: [ModalComponent]
 })
 export class BlankModule { }

@@ -1,0 +1,33 @@
+<div class="modal-header">
+  <h4 class="modal-title">Create a new document</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="container">
+    <div *ngIf="!isSelected">
+      <div class="row">
+        <div class="col-sm-4 col-md-4 col-lg-4">
+          <h5>Enter Document Type: </h5>
+        </div>
+        <div class="col-sm-8 col-md-8 col-lg-8">
+          <input type="text" class="form-control full-width" [(ngModel)]="type" (ngModelChange)="search()"/>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div *ngFor="let item of foundItems" class="col-md-6 col-sm-6 col-lg-6">
+          <span class="badge badge-secondary custom-cursor my-1" style="font-size: 14px" (click)="selectType(item)">
+            {{item}}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isSelected">
+      <h5>Selected Document Type: <span class="badge badge-success">{{selectedItem}}&nbsp;&nbsp;<em class="la la-close custom-cursor" (click)="resetType()"></em></span></h5>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>
