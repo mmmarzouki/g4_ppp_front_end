@@ -25,14 +25,14 @@ export class HomeComponent implements OnInit {
     collaborators: Collaborator[];
     submitted = false;
     success = false;
-    file: any;   
+    file: any;
     public form: FormGroup;
     public collaboratorsList: FormArray;
 
 
-  constructor(private projectService: ProjectService, private api: ApiService, private fb: FormBuilder, private authService: AuthService,private http: HttpClient) { 
-    this.api.classname = "users"
-  }
+    constructor(private projectService: ProjectService, private api: ApiService, private fb: FormBuilder, private authService: AuthService, private http: HttpClient) {
+        this.api.classname = "users"
+    }
 
     logout() {
         this.authService.logout();
@@ -49,12 +49,12 @@ export class HomeComponent implements OnInit {
 
         var currentUser = JSON.parse(localStorage.getItem("user"));
 
-    this.http.get<Project[]>("http://localhost:3333/user/" + currentUser._id + "/projects").subscribe(projects => {
-      this.model = projects
-    })
-    this.project = new Project();
+        this.http.get<Project[]>("http://localhost:3333/user/" + currentUser._id + "/projects").subscribe(projects => {
+            this.model = projects
+        })
+        this.project = new Project();
 
-    let regex = new RegExp("([a-zA-Z0-9])+(.pdf)");
+        let regex = new RegExp("([a-zA-Z0-9])+(.pdf)");
         this.form = this.fb.group({
             name: [null, Validators.compose([Validators.required])],
             description: [null, Validators.required],
@@ -95,7 +95,7 @@ export class HomeComponent implements OnInit {
 
     setFile(event) {
         this.file = event.target.files[0];
-        this.form.controls['fileHidden'].setValue( this.file.name );
+        this.form.controls['fileHidden'].setValue(this.file.name);
         console.log(this.file.name);
     }
 
@@ -114,16 +114,16 @@ export class HomeComponent implements OnInit {
             formData.append('startDate', this.project.startDate);
             formData.append('endDate', this.project.endDate);
             formData.append('description', this.project.description);
-            formData.append('processEndDate',this.form.controls.processEndDate.value);
+            formData.append('processEndDate', this.form.controls.processEndDate.value);
 
             this.project.collaborators.forEach(element => {
-                formData.append('collaborators',element.collaboratorId);
-                formData.append('roles',element.role);
+                formData.append('collaborators', element.collaboratorId);
+                formData.append('roles', element.role);
             })
-            formData.append('mandate',this.file);
+            formData.append('mandate', this.file);
 
             this.api.classname = "projects";
-            
+
             this.projectService.create(formData).pipe(
                 concatMap(_ => {
                     this.success = true;
