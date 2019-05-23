@@ -26,8 +26,10 @@ export class ModalComponent implements OnInit {
         );
     }
     ngOnInit() {
-        this.types = this.docTypeValues();
-
+        let array = this.docTypeValues();
+        array.forEach(element => {
+            this.types.push(element.replace(/([A-Z])/g, ' $1').trim());
+        });
     }
     selectType(item) {
         this.selectedItem = item;
