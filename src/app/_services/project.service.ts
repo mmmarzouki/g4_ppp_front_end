@@ -7,12 +7,12 @@ import { Project } from '../models/project';
 @Injectable()
 export class ProjectService {
 
-  private baseUrl= 'http://localhost:3333/projects';
-  
-  constructor(private http: HttpClient) { }
+    private baseUrl = 'http://localhost:3333/projects';
 
-  public create(formData: FormData): Observable<Project> {
-    return this.http.post<Project>(this.baseUrl,formData);
-  }
+    constructor(private http: HttpClient) { }
+
+    public create(formData: FormData): Observable<Project> {
+        return this.http.post<Project>(this.baseUrl, formData);
+    }
 
 }

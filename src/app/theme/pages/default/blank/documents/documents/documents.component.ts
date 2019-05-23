@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Project} from "../../../../../../models/project";
-import {ActivatedRoute} from "@angular/router";
-import {Process} from "../../../../../../models/process";
+import { Project } from "../../../../../../models/project";
+import { ActivatedRoute } from "@angular/router";
+import { Process } from "../../../../../../models/process";
 import { Doc } from '../../../../../../models/doc';
 import { HttpClient } from '@angular/common/http';
 import { DocumentService } from '../../../../../../_services/document.service';
@@ -23,21 +23,21 @@ export class DocumentsComponent implements OnInit {
     ngOnInit() {
         this.project = this.route.snapshot.data.project[0];
         const id = this.route.snapshot.params.idprocess;
-        this.project.processes.forEach(p=> {
-            if (p._id === id){
+        this.project.processes.forEach(p => {
+            if (p._id === id) {
                 this.process = p;
             }
         });
     }
-    exploreDocument(document: Doc){
+    exploreDocument(document: Doc) {
         this.fileOpened = false;
         const collaborator = JSON.parse(localStorage.getItem('user'));
         let role = '';
         this.project.collaborators.forEach(collab => {
-            if(collab.collaboratorId === collaborator._id)
+            if (collab.collaboratorId === collaborator._id)
                 role = collab.role;
         });
-        if (document.permittedRoles.indexOf(role) === -1){
+        if (document.permittedRoles.indexOf(role) === -1) {
             this.fileOpened = true;
         }
         else {
@@ -47,7 +47,7 @@ export class DocumentsComponent implements OnInit {
         }
     }
 
-    resetFileOpened(){
+    resetFileOpened() {
         this.fileOpened = false;
     }
 }

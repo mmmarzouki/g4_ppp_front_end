@@ -40,7 +40,7 @@ import { ProjectService } from './_services/project.service';
         ReactiveFormsModule,
         NgbModule.forRoot()
     ],
-    providers: [ProjectService, DocumentService, HttpClientModule,ScriptLoaderService, ApiService, AuthService, AuthGuardService,
+    providers: [ProjectService, DocumentService, HttpClientModule, ScriptLoaderService, ApiService, AuthService, AuthGuardService,
 
         {
             provide: HTTP_INTERCEPTORS,

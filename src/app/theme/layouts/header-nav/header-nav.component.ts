@@ -3,8 +3,8 @@ import { Helpers } from '../../../helpers';
 import { ProjectResolver } from '../../../_resolvers/project-resolver';
 import { Project } from '../../../models/project';
 import { AuthService } from '../../../_services/auth.service';
-import {User} from "../../../auth/_models";
-import {ApiService} from "../../../_services/api.service";
+import { User } from "../../../auth/_models";
+import { ApiService } from "../../../_services/api.service";
 import { HttpClient } from '@angular/common/http';
 
 declare let mLayout: any;
@@ -17,7 +17,7 @@ export class HeaderNavComponent implements OnInit, AfterViewInit {
 
     project: Project;
     projects: Project[];
-    constructor(private projectResolver: ProjectResolver, private authService: AuthService,private api: ApiService, private http: HttpClient) {
+    constructor(private projectResolver: ProjectResolver, private authService: AuthService, private api: ApiService, private http: HttpClient) {
 
     }
     ngOnInit() {
@@ -27,7 +27,7 @@ export class HeaderNavComponent implements OnInit, AfterViewInit {
 
         this.http.get<Project[]>("http://localhost:3333/user/" + user._id + "/projects").subscribe(projects => {
             this.projects = projects;
-          })
+        })
     }
     ngAfterViewInit() {
 
