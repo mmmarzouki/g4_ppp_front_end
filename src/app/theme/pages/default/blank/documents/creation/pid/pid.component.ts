@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-pid',
@@ -8,10 +9,22 @@ import { Component, OnInit } from '@angular/core';
 export class PidComponent implements OnInit {
 
   background = '';
+  public form: FormGroup;
+  submitted= false;
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.form = this.fb.group({
+      background: [null, Validators.required]
+    })
   }
 
+  onSubmit(){
+    this.submitted = true;
+    if (this.form.valid) {
+      console.log('test');
+      this.submitted = false;
+    }
+  }
 }

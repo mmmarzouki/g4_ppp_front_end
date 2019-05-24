@@ -1,6 +1,13 @@
-<div class="form">
+<form class="form"  [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label>Background</label>
-    <textarea name="background" id="background" class="form-control" [(ngModel)]="background"></textarea>
+    <label>Background:</label>
+    <textarea required name="background" id="background" class="form-control m-input" placeholder="Enter project background" formControlName="background" ></textarea>
+    
+    <span class="m-form__help text-danger" *ngIf="!form?.controls.background.valid && submitted">
+      Please enter a project background
+    </span>
+  </div>
+  <div>
+    <button type="submit" name="submit" id="submit" class="btn btn-block btn-info">Submit</button>
   </div>  
-</div>
+</form>
