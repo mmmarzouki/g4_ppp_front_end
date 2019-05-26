@@ -68,6 +68,6 @@ const routes: Routes = [
 
     ],
     providers: [],
-    entryComponents: [ModalComponent]
+    entryComponents: [ModalComponent, SendnotifComponent]
 })
 export class BlankModule { }

@@ -20,6 +20,7 @@ import { AuthInterceptor } from './_interceptors/authinterceptor';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { DocumentService } from './_services/document.service';
 import { ProjectService } from './_services/project.service';
+import { NotifService } from './_services/notif.service';
 
 @NgModule({
     declarations: [
@@ -40,7 +41,7 @@ import { ProjectService } from './_services/project.service';
         ReactiveFormsModule,
         NgbModule.forRoot()
     ],
-    providers: [ProjectService, DocumentService, HttpClientModule, ScriptLoaderService, ApiService, AuthService, AuthGuardService,
+    providers: [NotifService, ProjectService, DocumentService, HttpClientModule, ScriptLoaderService, ApiService, AuthService, AuthGuardService,
 
         {
             provide: HTTP_INTERCEPTORS,
