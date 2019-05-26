@@ -1,13 +1,159 @@
-<form class="form"  [formGroup]="form" (ngSubmit)="onSubmit()">
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label>Version:</label>
+    <input type="text" required name="version" id="version" class="form-control m-input"
+      placeholder="Enter document version" formControlName="version">
+
+    <span class="m-form__help text-danger" *ngIf="!form?.controls.version.valid && submitted">
+      Please enter a project version
+    </span>
+  </div>
   <div class="form-group">
     <label>Background:</label>
-    <textarea required name="background" id="background" class="form-control m-input" placeholder="Enter project background" formControlName="background" ></textarea>
-    
+    <textarea required name="background" id="background" class="form-control m-input"
+      placeholder="Enter project background" formControlName="background"></textarea>
+
     <span class="m-form__help text-danger" *ngIf="!form?.controls.background.valid && submitted">
       Please enter a project background
     </span>
   </div>
+  <div class="form-group">
+    <label>Desired outcomes:</label>
+    <textarea required name="desiredOutcomes" id="desiredOutcomes" class="form-control m-input"
+      placeholder="Enter project desired outcomes" formControlName="desiredOutcomes"></textarea>
+
+    <span class="m-form__help text-danger" *ngIf="!form?.controls.desiredOutcomes.valid && submitted">
+      Please enter a project desired outcomes
+    </span>
+  </div>
+  <div class="form-group">
+    <label>Interfaces:</label>
+    <textarea required name="interfaces" id="interfaces" class="form-control m-input"
+      placeholder="Enter project interfaces" formControlName="interfaces"></textarea>
+
+    <span class="m-form__help text-danger" *ngIf="!form?.controls.interfaces.valid && submitted">
+      Please enter a project interfaces
+    </span>
+  </div>
+  <div class="form-group">
+    <label>projectApproach:</label>
+    <textarea required name="projectApproach" id="projectApproach" class="form-control m-input"
+      placeholder="Enter project projectApproach" formControlName="interfaces"></textarea>
+
+    <span class="m-form__help text-danger" *ngIf="!form?.controls.projectApproach.valid && submitted">
+      Please enter a project projectApproach
+    </span>
+  </div>
+  <div class="form-group">
+    <label>acceptanceResponsibilities:</label>
+    <textarea required name="acceptanceResponsibilities" id="acceptanceResponsibilities" class="form-control m-input"
+      placeholder="Enter project acceptanceResponsibilities" formControlName="acceptanceResponsibilities"></textarea>
+
+    <span class="m-form__help text-danger" *ngIf="!form?.controls.acceptanceResponsibilities.valid && submitted">
+      Please enter a project acceptanceResponsibilities
+    </span>
+  </div>
+  <div class="form-group">
+    <label>projectProductDescription:</label>
+    <textarea required name="projectProductDescription" id="projectProductDescription" class="form-control m-input"
+      placeholder="Enter project projectProductDescription" formControlName="projectProductDescription"></textarea>
+
+    <span class="m-form__help text-danger" *ngIf="!form?.controls.projectProductDescription.valid && submitted">
+      Please enter a project projectProductDescription
+    </span>
+  </div>
+  <div class="form-group">
+    <label>businessCase:</label>
+    <textarea required name="businessCase" id="businessCase" class="form-control m-input"
+      placeholder="Enter project businessCase" formControlName="businessCase"></textarea>
+
+    <span class="m-form__help text-danger" *ngIf="!form?.controls.businessCase.valid && submitted">
+      Please enter a project businessCase
+    </span>
+  </div>
+  <div class="form-group">
+    <label>stakeHolderList:</label>
+    <textarea required name="stakeHolderList" id="stakeHolderList" class="form-control m-input"
+      placeholder="Enter project stakeHolderList" formControlName="stakeHolderList"></textarea>
+
+    <span class="m-form__help text-danger" *ngIf="!form?.controls.stakeHolderList.valid && submitted">
+      Please enter a project stakeHolderList
+    </span>
+  </div>
+  <div class="form-group">
+    <label>qualityManagementApproach:</label>
+    <textarea required name="qualityManagementApproach" id="qualityManagementApproach" class="form-control m-input"
+      placeholder="Enter project qualityManagementApproach" formControlName="qualityManagementApproach"></textarea>
+
+    <span class="m-form__help text-danger" *ngIf="!form?.controls.qualityManagementApproach.valid && submitted">
+      Please enter a project qualityManagementApproach
+    </span>
+  </div>
+  <div class="form-group">
+    <label>changeControlApproach:</label>
+    <textarea required name="changeControlApproach" id="changeControlApproach" class="form-control m-input"
+      placeholder="Enter project changeControlApproach" formControlName="changeControlApproach"></textarea>
+
+    <span class="m-form__help text-danger" *ngIf="!form?.controls.changeControlApproach.valid && submitted">
+      Please enter a project changeControlApproach
+    </span>
+  </div>
+  <div class="form-group">
+    <label>riskManagementApproach:</label>
+    <textarea required name="riskManagementApproach" id="riskManagementApproach" class="form-control m-input"
+      placeholder="Enter project riskManagementApproach" formControlName="riskManagementApproach"></textarea>
+
+    <span class="m-form__help text-danger" *ngIf="!form?.controls.riskManagementApproach.valid && submitted">
+      Please enter a project riskManagementApproach
+    </span>
+  </div>
+  <div class="form-group">
+    <label>communicationManagementApproach:</label>
+    <textarea required name="communicationManagementApproach" id="communicationManagementApproach"
+      class="form-control m-input" placeholder="Enter project communicationManagementApproach"
+      formControlName="communicationManagementApproach"></textarea>
+
+    <span class="m-form__help text-danger" *ngIf="!form?.controls.communicationManagementApproach.valid && submitted">
+      Please enter a project communicationManagementApproach
+    </span>
+  </div>
+  <div class="form-group">
+    <label>projectPlan:</label>
+    <textarea required name="projectPlan" id="projectPlan" class="form-control m-input"
+      placeholder="Enter project projectPlan" formControlName="projectPlan"></textarea>
+
+    <span class="m-form__help text-danger" *ngIf="!form?.controls.projectPlan.valid && submitted">
+      Please enter a project projectPlan
+    </span>
+  </div>
+  <div class="form-group">
+    <label>projectManagementTeam:</label>
+    <textarea required name="projectManagementTeam" id="projectManagementTeam" class="form-control m-input"
+      placeholder="Enter project projectManagementTeam" formControlName="projectManagementTeam"></textarea>
+
+    <span class="m-form__help text-danger" *ngIf="!form?.controls.projectManagementTeam.valid && submitted">
+      Please enter a project projectManagementTeam
+    </span>
+  </div>
+  <div class="form-group">
+    <label>projectControls:</label>
+    <textarea required name="projectControls" id="projectControls" class="form-control m-input"
+      placeholder="Enter project projectControls" formControlName="projectControls"></textarea>
+
+    <span class="m-form__help text-danger" *ngIf="!form?.controls.projectControls.valid && submitted">
+      Please enter a project projectControls
+    </span>
+  </div>
+  <div class="form-group">
+    <label>tailoring:</label>
+    <textarea required name="tailoring" id="tailoring" class="form-control m-input"
+      placeholder="Enter project tailoring" formControlName="tailoring"></textarea>
+
+    <span class="m-form__help text-danger" *ngIf="!form?.controls.tailoring.valid && submitted">
+      Please enter a project tailoring
+    </span>
+  </div>
   <div>
     <button type="submit" name="submit" id="submit" class="btn btn-block btn-info">Submit</button>
-  </div>  
+  </div>
 </form>
