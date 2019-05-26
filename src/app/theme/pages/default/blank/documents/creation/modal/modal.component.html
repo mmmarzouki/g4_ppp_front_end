@@ -26,6 +26,10 @@
     <div *ngIf="isSelected">
       <h5>Selected Document Type: <span class="badge badge-success">{{selectedItem}}&nbsp;&nbsp;<em class="la la-close custom-cursor" (click)="resetType()"></em></span></h5>
     </div>
+    <hr>
+    <div *ngIf="selectedItem === 'Project Initiation Documentation'">
+      <app-pid></app-pid>
+    </div>
   </div>
 </div>
 <div class="modal-footer">

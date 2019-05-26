@@ -12,8 +12,8 @@ import { ApiService } from "../../../../_services/api.service";
 import { ProcessesComponent } from './documents/processes/processes.component';
 import { ModalComponent } from './documents/creation/modal/modal.component';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { FormsModule } from "@angular/forms";
-import { SendnotifComponent } from './notifications/sendnotif/sendnotif.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { PidComponent } from './documents/creation/pid/pid.component';
 
 const routes: Routes = [
 
@@ -52,7 +52,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [CommonModule, RouterModule.forChild(routes), LayoutModule, NgbModule, FormsModule],
+    imports: [CommonModule, RouterModule.forChild(routes), LayoutModule, NgbModule, FormsModule,
+        ReactiveFormsModule],
     exports: [RouterModule],
     declarations: [
         BlankComponent,
@@ -61,7 +62,7 @@ const routes: Routes = [
         StatusComponent,
         ProcessesComponent,
         ModalComponent,
-        SendnotifComponent,
+        PidComponent,
 
     ],
     providers: [],
