@@ -13,6 +13,7 @@ import { ProcessesComponent } from './documents/processes/processes.component';
 import { ModalComponent } from './documents/creation/modal/modal.component';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule } from "@angular/forms";
+import { SendnotifComponent } from './notifications/sendnotif/sendnotif.component';
 
 const routes: Routes = [
 
@@ -60,9 +61,10 @@ const routes: Routes = [
         StatusComponent,
         ProcessesComponent,
         ModalComponent,
+        SendnotifComponent,
 
     ],
     providers: [],
-    entryComponents: [ModalComponent]
+    entryComponents: [ModalComponent, SendnotifComponent]
 })
 export class BlankModule { }

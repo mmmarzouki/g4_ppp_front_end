@@ -1,0 +1,61 @@
+<div class="modal-header">
+  <h4 class="modal-title">Create a new notif</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="container">
+    <label class="label_css">From: </label>
+    <input name="sender"  value="{{user.firstName}} {{user.lastName}}" type="text" id="form5" class="form-control" readonly>
+   
+    <label class="label_css">To:</label>
+    <input name="receiver"  placeholder="Email" type="text" id="form5" class="form-control" [(ngModel)]="email" >
+    
+    <label class="label_css">Object: </label>
+    <input name="sender"  placeholder="Object" type="text" id="form5" class="form-control" [(ngModel)]="notifForm.object" >
+    
+    <label class="label_css"> People with this role will see your notification</label>
+    <input name="role" placeholder="Role" type="text" id="form5" class="form-control"  [(ngModel)]="notifForm.role">
+    
+    <label class="label_css">Add the link of file here if u have one: </label>
+    <input name="link"  placeholder="Object" type="text" id="form5" class="form-control" [(ngModel)]="notifForm.lien">
+
+    <label class="label_css">Message</label>
+
+    <div >
+      <textarea name="description"  class="akahaw form-control" id="exampleFormControlTextarea2" rows="5"  style="width:100%;"  [(ngModel)]="notifForm.description" ></textarea>
+    </div>
+
+    
+    <input type="checkbox" [(ngModel)]="theCheckbox"  data-md-icheck (change)="toggleVisibility($event)"/>
+    <label class="form-check-label" for="exampleCheck1">New Process</label>
+  
+  
+  <div *ngIf="theCheckbox">
+
+    <label class="label_css">Process Name: </label>
+    <input name="name"  type="text"  class="form-control" [(ngModel)]="processForm.name">
+
+    <label class="label_css">Process Description: </label>
+    <input name="description"  type="text"  class="form-control" [(ngModel)]="processForm.description">
+
+    <label class="label_css">Process Start Date: </label>
+    <input name="startDate"  type="date"  class="form-control" [(ngModel)]="processForm.startDate">
+
+    <label class="label_css">Process End Date: </label>
+    <input name="endDate"  type="date" class="form-control" [(ngModel)]="processForm.endDate">
+
+
+
+ 
+</div>
+       
+
+     
+    
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+  <button type="button" class="btn btn-outline-info " (click)="sendNotif()">Send</button>
+</div>
