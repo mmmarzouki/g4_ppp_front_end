@@ -66,7 +66,7 @@ const routes: Routes = [
         ModalComponent,
         PidComponent,
         BusinessCaseComponent,
-
+        SendnotifComponent
     ],
     providers: [],
     entryComponents: [ModalComponent, SendnotifComponent]
