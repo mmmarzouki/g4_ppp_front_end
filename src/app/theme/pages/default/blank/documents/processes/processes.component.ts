@@ -30,5 +30,5 @@ export class ProcessesComponent implements OnInit {
     openModal() {
         const modalRef = this.modalService.open(ModalComponent, { size: 'lg' });
         modalRef.componentInstance.project = this.project;
-
+    }
 }
