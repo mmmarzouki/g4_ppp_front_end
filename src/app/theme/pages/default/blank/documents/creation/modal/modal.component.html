@@ -28,10 +28,10 @@
     </div>
     <hr>
     <div *ngIf="selectedItem === 'Project Initiation Documentation'">
-      <app-pid></app-pid>
+      <app-pid [project]="project"></app-pid>
     </div>
     <div *ngIf="selectedItem === 'Business Case'">
-      <app-business-case></app-business-case>
+      <app-business-case [project]="project"></app-business-case>
     </div>
   </div>
 </div>

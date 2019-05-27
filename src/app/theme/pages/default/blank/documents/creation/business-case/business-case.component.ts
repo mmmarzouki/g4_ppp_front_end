@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Project } from '../../../../../../../models/project';
+import { DocumentService } from '../../../../../../../_services/document.service';
 
 @Component({
   selector: 'app-business-case',
@@ -7,6 +9,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./business-case.component.scss']
 })
 export class BusinessCaseComponent implements OnInit {
+
+  @Input()
+  project: Project;
 
   version = '';
   executiveSummary = '';
@@ -17,11 +22,11 @@ export class BusinessCaseComponent implements OnInit {
   cost = '';
   timescales = '';
   investmentAppraisal = '';
-  
-  public form: FormGroup;
-  submitted= false;
 
-  constructor(private fb: FormBuilder) { }
+  public form: FormGroup;
+  submitted = false;
+
+  constructor(private fb: FormBuilder, private documentService: DocumentService) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -37,10 +42,33 @@ export class BusinessCaseComponent implements OnInit {
     })
   }
 
-  onSubmit(){
+  onSubmit() {
     this.submitted = true;
     if (this.form.valid) {
-      console.log('test');
+      const user = JSON.parse(localStorage.getItem('user'));
+      const author = user.firstName + " " + user.lastName;
+      const body = {
+        version : this.version,
+        executiveSummary : this.executiveSummary,
+        reasons : this.reasons,
+        options : this.options,
+        expectedBenefitsAndDisbenefits : this.expectedBenefitsAndDisbenefits,
+        risks : this.risks,
+        cost : this.cost,
+        timescales : this.timescales,
+        investmentAppraisal : this.investmentAppraisal,
+        author: author
+      }
+      const projectId = this.project._id;
+      let processId = '';
+      this.project.processes.forEach(el => {
+        if (el.isActive)
+          processId = el._id;
+      })
+
+      this.documentService.uploadBusinessCase(body, projectId, processId).subscribe(res => {
+        this.project = res;
+      })
       this.submitted = false;
     }
   }

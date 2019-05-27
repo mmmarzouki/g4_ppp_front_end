@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { DocType } from '../../../../../../../models/types/doctype';
-import { Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
+import { Project } from '../../../../../../../models/project';
 
 @Component({
     selector: 'app-modal',
@@ -10,6 +9,9 @@ import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
     styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent implements OnInit {
+
+    @Input()
+    project: Project;
 
     constructor(public activeModal: NgbActiveModal) { }
 
