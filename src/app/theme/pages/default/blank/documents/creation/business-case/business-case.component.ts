@@ -49,15 +49,15 @@ export class BusinessCaseComponent implements OnInit {
       const author = user.firstName + " " + user.lastName;
       const body = {
         projectName : this.project.name,
-        version : this.version,
-        executiveSummary : this.executiveSummary,
-        reasons : this.reasons,
-        options : this.options,
-        expectedBenefitsAndDisbenefits : this.expectedBenefitsAndDisbenefits,
-        risks : this.risks,
-        cost : this.cost,
-        timescales : this.timescales,
-        investmentAppraisal : this.investmentAppraisal,
+        version : this.form.controls.version.value,
+        executiveSummary : this.form.controls.executiveSummary.value,
+        reasons : this.form.controls.reasons.value,
+        options : this.form.controls.options.value,
+        expectedBenefitsAndDisbenefits : this.form.controls.expectedBenefitsAndDisbenefits.value,
+        risks : this.form.controls.risks.value,
+        cost : this.form.controls.cost.value,
+        timescales : this.form.controls.timescales.value,
+        investmentAppraisal : this.form.controls.investmentAppraisal.value,
         author: author
       }
       const projectId = this.project._id;
