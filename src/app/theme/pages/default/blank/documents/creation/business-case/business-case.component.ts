@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Project } from '../../../../../../../models/project';
 import { DocumentService } from '../../../../../../../_services/document.service';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-business-case',
@@ -26,7 +27,7 @@ export class BusinessCaseComponent implements OnInit {
   public form: FormGroup;
   submitted = false;
 
-  constructor(private fb: FormBuilder, private documentService: DocumentService) { }
+  constructor(private fb: FormBuilder, private documentService: DocumentService, private activeModal: NgbActiveModal) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -71,6 +72,7 @@ export class BusinessCaseComponent implements OnInit {
         this.project = res;
       })
       this.submitted = false;
+      this.activeModal.close('Close click')
     }
   }
 }
