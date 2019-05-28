@@ -48,6 +48,7 @@ export class BusinessCaseComponent implements OnInit {
       const user = JSON.parse(localStorage.getItem('user'));
       const author = user.firstName + " " + user.lastName;
       const body = {
+        projectName : this.project.name,
         version : this.version,
         executiveSummary : this.executiveSummary,
         reasons : this.reasons,

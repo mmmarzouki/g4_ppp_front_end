@@ -58,7 +58,7 @@ export class PidComponent implements OnInit {
       projectControls: [null, Validators.required],
       tailoring: [null, Validators.required]
     })
-  }
+   }
 
   onSubmit(){
     this.submitted = true;
@@ -66,6 +66,7 @@ export class PidComponent implements OnInit {
       const user = JSON.parse(localStorage.getItem('user'));
       const author = user.firstName + " " + user.lastName;
       const body = {
+        projectName : this.project.name,
         background : this.background,
         version : this.version,
         mainGoal : this.mainGoal,
