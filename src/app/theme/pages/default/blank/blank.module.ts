@@ -14,6 +14,7 @@ import { ModalComponent } from './documents/creation/modal/modal.component';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { PidComponent } from './documents/creation/pid/pid.component';
+import { SendnotifComponent } from "./notifications/sendnotif/sendnotif.component";
 
 const routes: Routes = [
 
@@ -63,6 +64,7 @@ const routes: Routes = [
         ProcessesComponent,
         ModalComponent,
         PidComponent,
+        SendnotifComponent
 
     ],
     providers: [],
