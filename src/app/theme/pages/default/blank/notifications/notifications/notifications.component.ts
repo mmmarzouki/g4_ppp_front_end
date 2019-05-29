@@ -26,14 +26,18 @@ export class NotificationsComponent implements OnInit {
 
     ngOnInit() {
         this.project = this.route.snapshot.data.project[0];
-        this.notifs = this.project.notifs;
+        this.notifs = [];
         const collaborator = JSON.parse(localStorage.getItem('user'));
         let roleColab = '';
         this.project.collaborators.forEach(collab => {
           if (collab.collaboratorId === collaborator._id)
               roleColab = collab.role;
       });
-       
+      this.project.notifs.forEach(el => {
+        if (collaborator.email === el.email_receiver)
+        { this.notifs.push(el) ;
+        }
+      })
         
     }
     
