@@ -74,7 +74,9 @@ export class SendnotifComponent implements OnInit {
 
 
      this.notifService.create(formData).subscribe(res=>{
-     console.log(res);});
+     this.project = res;
+     location.reload();
+    });
  
     if (this.theCheckbox){
        const processFormDate = new FormData();
@@ -84,21 +86,26 @@ export class SendnotifComponent implements OnInit {
        processFormDate.append('startDate',this.processForm.startDate);
        processFormDate.append('endDate',this.processForm.endDate);
  
-       const projectFormDate = new FormData();
-       projectFormDate.append('project',this.project._id);
-       this.notifService.updateProcess(projectFormDate).subscribe(res=>{
-         console.log(res);});
-       
-       this.notifService.createProcess(processFormDate).subscribe(res=>{
-         console.log(res);});
-         console.log(this.processForm);
+       const body = {
+         description: this.processForm.description,
+         name: this.processForm.name,
+         endDate: this.processForm.endDate,
+         startDate: this.processForm.startDate,
+         type: 'Project Initiation',
+         docs: [],
+         isActive: true
+       }
+
+       this.notifService.createProcess(body,this.project._id).subscribe(res=>{
+         this.project=res;
+         this.activeModal.close('close');
+        });
 
 
   }}
 
   toggleVisibility(e) {
     this.marked = e.target.checked;
-    console.log(this.theCheckbox);
   }
 
 }

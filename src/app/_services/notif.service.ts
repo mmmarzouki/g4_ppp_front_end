@@ -12,6 +12,8 @@ export class NotifService {
 
   private processUrl = 'http://localhost:3333/process';
 
+  private baseUrlCreation = 'http://localhost:3333/process/';
+
   private processUpdateUrl = 'http://localhost:3333/updateProcess';
  
 
@@ -24,8 +26,9 @@ export class NotifService {
     return this.http.post<User>(this.baseUrl1, {email : email});
   }
 
-  public createProcess(formData1: FormData): Observable<Project> {
-    return this.http.post<any>(this.processUrl, formData1);
+  public createProcess(body, id): Observable<Project> {
+    const fullUrl = this.baseUrlCreation+id;
+    return this.http.post<any>(fullUrl, body);
 }
 
 public updateProcess(formData2: FormData): Observable<Project> {
