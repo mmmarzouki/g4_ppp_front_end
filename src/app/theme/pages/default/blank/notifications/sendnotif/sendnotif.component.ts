@@ -56,9 +56,9 @@ export class SendnotifComponent implements OnInit {
 
     });
 
-    if (this.roleColab == "Project Executiveee")
+    if (this.roleColab === "Project Board")
       this.validRole = true;
-    console.log(this.roleColab);
+    console.log(this.validRole);
   }
 
 
@@ -73,7 +73,7 @@ export class SendnotifComponent implements OnInit {
     formData.append('description', this.notifForm.description);
 
 
-    /* this.notifService.create(formData).subscribe(res=>{
+     this.notifService.create(formData).subscribe(res=>{
      console.log(res);});
  
     if (this.theCheckbox){
@@ -91,10 +91,10 @@ export class SendnotifComponent implements OnInit {
        
        this.notifService.createProcess(processFormDate).subscribe(res=>{
          console.log(res);});
-         console.log(this.processForm);*/
+         console.log(this.processForm);
 
 
-  }
+  }}
 
   toggleVisibility(e) {
     this.marked = e.target.checked;
