@@ -56,7 +56,7 @@ export class SendnotifComponent implements OnInit {
 
     });
 
-    if (this.roleColab === "Project Board")
+    if (this.roleColab === "Project Manager")
       this.validRole = true;
     console.log(this.validRole);
   }
